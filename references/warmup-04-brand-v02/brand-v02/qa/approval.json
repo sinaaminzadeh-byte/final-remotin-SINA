@@ -1,0 +1,7 @@
+{
+  "referenceSha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+  "userApprovedFinalAndStandingBrandRule": true,
+  "approvalStage": "after local MP4 handoff",
+  "supersedes": "humanApprovalOfVideo in the earlier pre-handoff technical report",
+  "brandPolicy": "motion-system/creator-brand-v1/README.md"
+}

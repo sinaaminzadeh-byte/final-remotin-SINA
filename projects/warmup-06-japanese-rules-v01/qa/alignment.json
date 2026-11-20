@@ -1,0 +1,16 @@
+{
+  "method": "Offline native Persian char-CTC forced alignment with Viterbi on the exact supplied transcript. 16 kHz inference only; 20 ms stride, +-35 ms emission margins. Adjacent overlaps split between emissions. Nearest 60 Hz frame for the animation/caption clock.",
+  "model": "XDcobra/wav2vec2-large-xlsr-53-persian-ONNX@f3704ea1da09bc43528c1e332475b2c70ac9dd28",
+  "words": 154,
+  "greedyDiagnosticOnly": "چهار قانون ژاپونی برا اینكه امسال پیجت رو بدون خستگی راه بندازی و بتره کنیشماره یک وابیثابی کمالگرایی رو دور بریز ویدیوی اولت قرار نیست جایزه اسر کار بگیره اجرای ناقع صدها برابر بهتر از یک شاهکار خیالی یهکی هیچوقت آپلود نمیشه شماره دو کاییزن بهبوتهای کوچک و دائمیقرار نیست روزی پنج تا ویدیو بسازی روزی فقط بیست دقیقه باهوش مصنوعی وقت بذار و هر روز یک نکته جدید یاد بگیرشماره سه ایکیگایهدفت رو شفاف کن موضوعی رو برای پیجاد انتخاب کن که حتی اگه پولی هم در کار نبود عاشق حرف زادن دربارش بودیبقیه بخشهای فنی و سخت رو بسبار به هوش مسنوعی و شماره چهار گامبارو استمرار هوشمندانه به جان که یک ماه شبانه روز کارکنی و خسته بشی سیستم تولیدت رو اتوماتی کن تا کارای تکراری و سخت روزانه رو پوش مسمومی انجام بده پس اگه تو هم یه سامورایی شکست اپذیر می شناسی این ویدیور براش بفرست ",
+  "pronunciationsForAlignmentOnly": {
+    "۴": "چهار",
+    "۵": "پنج",
+    "۲۰": "بیست",
+    "درباره‌اش": "دربارش",
+    "کارهای": "کارای"
+  },
+  "voiceResynthesized": false,
+  "humanListening": false,
+  "limitation": "Automatic onsets are not human phoneme annotations; greedy output was not substituted for any narration word."
+}

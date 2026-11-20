@@ -1,0 +1,25 @@
+{
+  "sampleId": "warmup-04-brand-v02-2k",
+  "sha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+  "video": "projects/warmup-04-zero-capital-asset-v01/revisions/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4",
+  "activeEntryPointsChecked": 9,
+  "approvedAssetsChecked": 4,
+  "renderer": "Remotion",
+  "byline2k": [
+    468,
+    368,
+    972,
+    478
+  ],
+  "ffprobe": {
+    "size": [
+      1440,
+      2560
+    ],
+    "rate": "60/1",
+    "frames": 3215,
+    "durationSeconds": 53.583333,
+    "audio": "AAC stereo 48 kHz"
+  },
+  "gate": "pass"
+}

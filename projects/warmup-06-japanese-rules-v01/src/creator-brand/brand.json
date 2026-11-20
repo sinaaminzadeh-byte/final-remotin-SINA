@@ -1,0 +1,8 @@
+{
+  "version":"1.0.0", "approval":"cover 1, hairline 1, followed by a minor reduction and upward shift",
+  "canvas":{"logical":[1080,1920],"reel2k":[1440,2560],"fps":60},
+  "byline":{"style":"hairline-1","name":"سینا امین زاده","tagline":"هوش مصنوعی به زبان ساده","portrait":"portrait.png","asset":"signature-2k.png","master":"hairline-master.png","version1OriginalBounds2k":[432,384,1008,510],"width2k":504,"height2k":110,"top2k":368,"centerX2k":720,"bounds2k":[468,368,972,478],"bounds1080":[351,276,729,358.5],"role":"single static overlay from frame zero to the last frame; not part of shot transforms or cover pixels","nameInk":"#293E4E","secondaryInk":"#52635F"},
+  "safeReference":{"kind":"Meta Reels video ad recommendation; conservative reference, not a guarantee for other crops", "url":"https://www.facebook.com/business/ads-guide/update/video/instagram-reels","topPercent":14,"sidePercent":6,"bottomPercent":35,"bounds2k":[87,359,1353,1664]},
+  "cover":{"style":"question-1","axisX1080":508,"eyebrowCenterY1080":488,"firstLineCenterY1080":595,"secondLineCenterY1080":737,"firstInk":"#17263D","secondInk":"#146EF5","paper":"#F3F1EA","fontFamily":"Doran","heroCenter1080":[517,1237],"example":"examples/cover-1440.png","bodyExample":"examples/interior-1440.png"},
+  "fontAssets":["DoranFaNum-Bold.woff2","DoranFaNum-ExtraBold.woff2","DoranFaNum-Black.woff2"],"publicDirName":"creator-brand-v1"
+}

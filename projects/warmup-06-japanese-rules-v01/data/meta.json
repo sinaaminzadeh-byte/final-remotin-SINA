@@ -1,0 +1,88 @@
+{
+  "slug": "warmup-06-japanese-rules-v01",
+  "compositionId": "WarmupSixJapaneseRules",
+  "fps": 60,
+  "width": 1080,
+  "height": 1920,
+  "scale": 1.3333333333333333,
+  "outputWidth": 1440,
+  "outputHeight": 2560,
+  "durationSeconds": 55.2,
+  "durationInFrames": 3312,
+  "narrationHz": 24000,
+  "voiceGain": 1.0,
+  "elementGain": 0.3,
+  "openingEndFrame": 80,
+  "shots": [
+    {
+      "id": "launch-page",
+      "name": "LaunchPage",
+      "frame": 80,
+      "word": 3,
+      "wipe": false
+    },
+    {
+      "id": "wabi-sabi",
+      "name": "WabiSabiIntro",
+      "frame": 309,
+      "word": 14,
+      "wipe": true
+    },
+    {
+      "id": "oscar-upload",
+      "name": "OscarVsUpload",
+      "frame": 548,
+      "word": 21,
+      "wipe": false
+    },
+    {
+      "id": "kaizen-steps",
+      "name": "KaizenIntro",
+      "frame": 1007,
+      "word": 41,
+      "wipe": true
+    },
+    {
+      "id": "twenty-min-ai",
+      "name": "TwentyMinAI",
+      "frame": 1251,
+      "word": 48,
+      "wipe": false
+    },
+    {
+      "id": "ikigai-compass",
+      "name": "IkigaiCompass",
+      "frame": 1644,
+      "word": 72,
+      "wipe": true
+    },
+    {
+      "id": "delegate-ai",
+      "name": "DelegateToAI",
+      "frame": 2183,
+      "word": 98,
+      "wipe": false
+    },
+    {
+      "id": "gambaru-system",
+      "name": "GambaruSystem",
+      "frame": 2355,
+      "word": 108,
+      "wipe": true
+    },
+    {
+      "id": "auto-pipeline",
+      "name": "AutoPipeline",
+      "frame": 2766,
+      "word": 125,
+      "wipe": false
+    },
+    {
+      "id": "samurai-cta",
+      "name": "SamuraiCTA",
+      "frame": 3077,
+      "word": 141,
+      "wipe": true
+    }
+  ]
+}

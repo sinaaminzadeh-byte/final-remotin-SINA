@@ -1,0 +1,48 @@
+{
+  "mistake_register_sha256": "f68380aaba4d67452d71e0f2c5ce32d038a9f0932cf6b7c066521f0cc72a010c",
+  "read_before_production": true,
+  "reviewed_before_commit": true,
+  "checked_mistake_ids": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020",
+    "M021",
+    "M022"
+  ],
+  "new_mistakes_found": true,
+  "new_mistake_ids": [
+    "M021",
+    "M022"
+  ],
+  "new_video_user_approval": "awaiting-user-review",
+  "evidence_paths": [
+    "warmup-06-japanese-rules-v01-2k.mp4",
+    "cover-2k.png",
+    "qa/encoded-review.jpg",
+    "qa/verification.json",
+    "qa/type-and-layout.json",
+    "qa/mix.json",
+    "qa/alignment.json",
+    "qa/source-determinism.json",
+    "qa/mistake-review.json",
+    "identity-map.md",
+    "semantic-beats.json"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "frames": [
+    0,
+    495,
+    1195,
+    1840,
+    2710,
+    3295
+  ],
+  "hashes": {
+    "0": [
+      "b31c49c1ce9102e854dffbfcfdae569794fcb28ce330bc8f19dced5c87118866",
+      "b31c49c1ce9102e854dffbfcfdae569794fcb28ce330bc8f19dced5c87118866",
+      true
+    ],
+    "495": [
+      "4250a555bc6d299feb5551ceb71a47d32a093a617f19eb34a7187a86d38191f2",
+      "4250a555bc6d299feb5551ceb71a47d32a093a617f19eb34a7187a86d38191f2",
+      true
+    ],
+    "1195": [
+      "8dffbc3bf9111e86e18130c38b5afea44995048a820f322b3d107be3316a9c3f",
+      "8dffbc3bf9111e86e18130c38b5afea44995048a820f322b3d107be3316a9c3f",
+      true
+    ],
+    "1840": [
+      "088dffebcb82aabba1c78ee4b641deb16008428e4547086c16424d79d9b782e9",
+      "088dffebcb82aabba1c78ee4b641deb16008428e4547086c16424d79d9b782e9",
+      true
+    ],
+    "2710": [
+      "7ecd9060741f90f117f1a50dc58774038297fe3a080ae3ad390b0e74490588fc",
+      "7ecd9060741f90f117f1a50dc58774038297fe3a080ae3ad390b0e74490588fc",
+      true
+    ],
+    "3295": [
+      "a1f3f9e992cc1c78e33fbae4ae3fadf43e2f1b13f4f2e70c79a1d6888ddefe83",
+      "a1f3f9e992cc1c78e33fbae4ae3fadf43e2f1b13f4f2e70c79a1d6888ddefe83",
+      true
+    ]
+  },
+  "allIdentical": true
+}

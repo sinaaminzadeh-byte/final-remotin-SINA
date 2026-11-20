@@ -1,0 +1,35 @@
+{
+  "file": "warmup-06-japanese-rules-v01-2k.mp4",
+  "sha256": "0c32869c9e4b26c9e5fb1dfdd69779dcce8c0b5315d216857b7d5241167f6c09",
+  "sizeBytes": 7791005,
+  "video": {
+    "codec": "h264",
+    "width": 1440,
+    "height": 2560,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "avg_frame_rate": "60/1",
+    "r_frame_rate": "60/1",
+    "nb_frames": 3312,
+    "duration": 55.2
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "duration": 55.2,
+    "aacLagSamples": 0,
+    "active100msSpeechWindows": 439,
+    "minActiveWindowCorr": 0.8473,
+    "speechDropouts": 0
+  },
+  "native60fpsConsecutiveMotionDiffs": [
+    0.3775,
+    0.3505,
+    0.3187,
+    0.2942
+  ],
+  "native60fpsVerified": true,
+  "humanListeningPerformed": false,
+  "status": "implemented-awaiting-user-review"
+}

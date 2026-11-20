@@ -1,0 +1,28 @@
+{
+  "approvedCoverSHA256": "4f3f2ec8acd268178d06b2bf3856795262f260eccbf3d8d7428b67eebf325d53",
+  "finalCoverPNG": "135d6a1afd6beebd5188b07d9f00738e50a1fae9581a111e02429cea95bf9e8c",
+  "unmodifiedArtworkRegionXYXY": [
+    0,
+    578,
+    1440,
+    2560
+  ],
+  "meanRGBAbsoluteDifference": 0.00012193070972082072,
+  "fractionPixelsDifferenceOver12": 0.0,
+  "sourceF0OpeningTitle": "با جیب خالی / از کجا شروع کنم؟",
+  "beforeByline2k": [
+    432,
+    384,
+    1008,
+    510
+  ],
+  "afterByline2k": [
+    468,
+    368,
+    972,
+    478
+  ],
+  "authorPhotoSHA256": "4950eaca21697ea82afbb31330231de24372ddfe73e1f9c008645b4917066bae",
+  "alphaSHA256": "33029ba06369aa3fa3250e4da4fa8a26cd471501666889a7dc2ff848a8fff0ee",
+  "note": "Poster and interior examples are lossless copies of the native final source pixels. PNG container compression may differ."
+}

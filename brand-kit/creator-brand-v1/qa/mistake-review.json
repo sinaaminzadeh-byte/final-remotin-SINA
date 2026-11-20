@@ -1,0 +1,40 @@
+{
+  "registerSHA256": "898e401594a6eecebac483eb881847edddb721df6526e68d0db0dac8f2ba7482",
+  "scope": "verified against the live ledger before policy promotion. Existing video technical evidence is unchanged.",
+  "checked": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020"
+  ],
+  "policyAndCredentialRulesAdded": [
+    "M019",
+    "M020"
+  ],
+  "relevantPrevious": [
+    "M001",
+    "M008",
+    "M013",
+    "M014",
+    "M016",
+    "M017",
+    "M018"
+  ],
+  "riskRemaining": "previous Git history or external copies may still contain an exposed credential; owner revocation is required. No access credentials are in the candidate payload."
+}

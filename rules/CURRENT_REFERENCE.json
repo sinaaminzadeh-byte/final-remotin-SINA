@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 2,
+  "locked": true,
+  "lineage": "Lineage A (Warmup 04 brand-v02 + 8f12c76 parent choreography)",
+  "sampleId": "warmup-04-brand-v02-2k",
+  "primaryReference": {
+    "video": "references/warmup-04-brand-v02/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4",
+    "sha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+    "bytes": 7037213,
+    "encodedReview": "references/warmup-04-brand-v02/brand-v02/qa/encoded-review.jpg",
+    "poster": "brand-kit/creator-brand-v1/examples/cover-1440.png",
+    "interior": "brand-kit/creator-brand-v1/examples/interior-1440.png",
+    "semanticBeats": "references/warmup-04-brand-v02/semantic-beats.json",
+    "beatsCountInSample": 72
+  },
+  "parentReferenceSource": {
+    "originCommit": "8f12c76c591ec92f2cef2323b6c9465495f06d54",
+    "note": "Read these files for tactile SVG material craft, intra-object micro-actions, and cross-scene continuity.",
+    "files": [
+      "references/warmup-04-brand-v02/parent-src/audit.tsx",
+      "references/warmup-04-brand-v02/parent-src/begin.tsx",
+      "references/warmup-04-brand-v02/parent-src/build.tsx",
+      "references/warmup-04-brand-v02/parent-src/convert.tsx",
+      "references/warmup-04-brand-v02/parent-src/core.tsx",
+      "references/warmup-04-brand-v02/parent-src/index.tsx",
+      "references/warmup-04-brand-v02/parent-src/objects.tsx",
+      "references/warmup-04-brand-v02/parent-src/publish.tsx"
+    ]
+  },
+  "production": {
+    "renderer": "Remotion",
+    "rendererRequired": true,
+    "referenceEngineVersion": "4.0.543",
+    "starterTemplate": "starter-template/",
+    "scaffoldCommand": "python3 scripts/new_project.py <slug>",
+    "verifyGateCommand": "python3 scripts/verify_project.py projects/<slug>",
+    "logicalCanvas": [
+      1080,
+      1920
+    ],
+    "nativeScale": [
+      4,
+      3
+    ],
+    "deliveryCanvas": [
+      1440,
+      2560
+    ],
+    "fps": 60,
+    "frameRateMode": "CFR",
+    "video": "H.264 yuv420p BT.709",
+    "audio": "AAC stereo 48000 Hz",
+    "voiceGain": 1.0,
+    "elementSfxGain": 0.3,
+    "noSecondSpeedup": true,
+    "microActionTargetPerSecond": [
+      1.0,
+      1.4
+    ]
+  },
+  "brandKit": {
+    "root": "brand-kit/creator-brand-v1/",
+    "settings": "brand-kit/creator-brand-v1/brand.json",
+    "signatureBounds2k": [
+      468,
+      368,
+      972,
+      478
+    ],
+    "signatureBounds1080": [
+      351,
+      276,
+      729,
+      358.5
+    ],
+    "coverFromFrame": 0
+  },
+  "brandKitAssetSHA256": {
+    "brand-kit/creator-brand-v1/assets/DoranFaNum-Bold.woff2": "f7218c11089011bffaac60dd6a9d373c4167b768c9a4a4b3c7ea1541a12ec6e9",
+    "brand-kit/creator-brand-v1/assets/DoranFaNum-ExtraBold.woff2": "3a78de31b91918e2f1609390ac087ebee9df1029764e93b8ad443f20fdc0be5d",
+    "brand-kit/creator-brand-v1/assets/DoranFaNum-Black.woff2": "3f0d87ab6359f47b97c1934c161443d1aeb93301792af31b861180bf37dc3f1d",
+    "brand-kit/creator-brand-v1/assets/background.png": "a0c82d69f5892e3156be7202c4467ec82d689a4ef7b88a773be4ad2d70f7cd88",
+    "brand-kit/creator-brand-v1/assets/paper-grain.png": "fc197309b0d678a4fd51bf38db6a6a9b1305f128277d0b270150b0162cb2b956",
+    "brand-kit/creator-brand-v1/assets/pixel-mark.png": "1749212bd7a759e5975051125d38955fa4cb2cfa021a8696ef3e0a981c21a422",
+    "brand-kit/creator-brand-v1/assets/portrait.png": "4950eaca21697ea82afbb31330231de24372ddfe73e1f9c008645b4917066bae",
+    "brand-kit/creator-brand-v1/assets/signature-2k.png": "33029ba06369aa3fa3250e4da4fa8a26cd471501666889a7dc2ff848a8fff0ee",
+    "brand-kit/creator-brand-v1/examples/cover-1440.png": "135d6a1afd6beebd5188b07d9f00738e50a1fae9581a111e02429cea95bf9e8c",
+    "brand-kit/creator-brand-v1/examples/interior-1440.png": "4c0159d8966c8b2f7a9fb77b20f8dfcde87f070bd37095cd94c6ff1a965f421b"
+  }
+}

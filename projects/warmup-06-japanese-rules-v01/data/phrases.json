@@ -1,0 +1,378 @@
+[
+  {
+    "index": 0,
+    "first": 0,
+    "last": 2,
+    "fromFrame": 18,
+    "toFrame": 80,
+    "text": "۴ قانون ژاپنی"
+  },
+  {
+    "index": 1,
+    "first": 3,
+    "last": 5,
+    "fromFrame": 80,
+    "toFrame": 129,
+    "text": "برای اینکه امسال"
+  },
+  {
+    "index": 2,
+    "first": 6,
+    "last": 9,
+    "fromFrame": 129,
+    "toFrame": 199,
+    "text": "پیجت رو بدون خستگی"
+  },
+  {
+    "index": 3,
+    "first": 10,
+    "last": 13,
+    "fromFrame": 199,
+    "toFrame": 291,
+    "text": "راه بندازی و بترکونی!"
+  },
+  {
+    "index": 4,
+    "first": 14,
+    "last": 16,
+    "fromFrame": 309,
+    "toFrame": 427,
+    "text": "شماره یک: وابی‌سابی!"
+  },
+  {
+    "index": 5,
+    "first": 17,
+    "last": 20,
+    "fromFrame": 441,
+    "toFrame": 548,
+    "text": "کمال‌گرایی رو دور بریز!"
+  },
+  {
+    "index": 6,
+    "first": 21,
+    "last": 24,
+    "fromFrame": 548,
+    "toFrame": 611,
+    "text": "ویدیوی اولت قرار نیست"
+  },
+  {
+    "index": 7,
+    "first": 25,
+    "last": 27,
+    "fromFrame": 611,
+    "toFrame": 699,
+    "text": "جایزه اسکار بگیره؛"
+  },
+  {
+    "index": 8,
+    "first": 28,
+    "last": 31,
+    "fromFrame": 708,
+    "toFrame": 814,
+    "text": "اجرای ناقص صدها برابر"
+  },
+  {
+    "index": 9,
+    "first": 32,
+    "last": 34,
+    "fromFrame": 814,
+    "toFrame": 845,
+    "text": "بهتر از یک"
+  },
+  {
+    "index": 10,
+    "first": 35,
+    "last": 37,
+    "fromFrame": 845,
+    "toFrame": 907,
+    "text": "شاهکار خیالیه که"
+  },
+  {
+    "index": 11,
+    "first": 38,
+    "last": 40,
+    "fromFrame": 907,
+    "toFrame": 990,
+    "text": "هیچ‌وقت آپلود نمیشه."
+  },
+  {
+    "index": 12,
+    "first": 41,
+    "last": 43,
+    "fromFrame": 1007,
+    "toFrame": 1123,
+    "text": "شماره دو: کایزن؛"
+  },
+  {
+    "index": 13,
+    "first": 44,
+    "last": 47,
+    "fromFrame": 1131,
+    "toFrame": 1240,
+    "text": "بهبودهای کوچک و دائمی."
+  },
+  {
+    "index": 14,
+    "first": 48,
+    "last": 50,
+    "fromFrame": 1251,
+    "toFrame": 1290,
+    "text": "قرار نیست روزی"
+  },
+  {
+    "index": 15,
+    "first": 51,
+    "last": 54,
+    "fromFrame": 1290,
+    "toFrame": 1382,
+    "text": "۵ تا ویدیو بسازی؛"
+  },
+  {
+    "index": 16,
+    "first": 55,
+    "last": 58,
+    "fromFrame": 1382,
+    "toFrame": 1444,
+    "text": "روزی فقط ۲۰ دقیقه"
+  },
+  {
+    "index": 17,
+    "first": 59,
+    "last": 61,
+    "fromFrame": 1444,
+    "toFrame": 1486,
+    "text": "با هوش مصنوعی"
+  },
+  {
+    "index": 18,
+    "first": 62,
+    "last": 63,
+    "fromFrame": 1486,
+    "toFrame": 1515,
+    "text": "وقت بذار"
+  },
+  {
+    "index": 19,
+    "first": 64,
+    "last": 67,
+    "fromFrame": 1515,
+    "toFrame": 1555,
+    "text": "و هر روز یک"
+  },
+  {
+    "index": 20,
+    "first": 68,
+    "last": 71,
+    "fromFrame": 1555,
+    "toFrame": 1636,
+    "text": "نکته جدید یاد بگیر."
+  },
+  {
+    "index": 21,
+    "first": 72,
+    "last": 74,
+    "fromFrame": 1644,
+    "toFrame": 1765,
+    "text": "شماره سه: ایکیگای؛"
+  },
+  {
+    "index": 22,
+    "first": 75,
+    "last": 78,
+    "fromFrame": 1770,
+    "toFrame": 1862,
+    "text": "هدفت رو شفاف کن."
+  },
+  {
+    "index": 23,
+    "first": 79,
+    "last": 82,
+    "fromFrame": 1869,
+    "toFrame": 1931,
+    "text": "موضوعی رو برای پیجت"
+  },
+  {
+    "index": 24,
+    "first": 83,
+    "last": 85,
+    "fromFrame": 1931,
+    "toFrame": 1971,
+    "text": "انتخاب کن که"
+  },
+  {
+    "index": 25,
+    "first": 86,
+    "last": 89,
+    "fromFrame": 1971,
+    "toFrame": 2025,
+    "text": "حتی اگه پولی هم"
+  },
+  {
+    "index": 26,
+    "first": 90,
+    "last": 92,
+    "fromFrame": 2025,
+    "toFrame": 2069,
+    "text": "در کار نبود،"
+  },
+  {
+    "index": 27,
+    "first": 93,
+    "last": 95,
+    "fromFrame": 2069,
+    "toFrame": 2118,
+    "text": "عاشق حرف زدن"
+  },
+  {
+    "index": 28,
+    "first": 96,
+    "last": 97,
+    "fromFrame": 2118,
+    "toFrame": 2178,
+    "text": "درباره‌اش بودی."
+  },
+  {
+    "index": 29,
+    "first": 98,
+    "last": 100,
+    "fromFrame": 2183,
+    "toFrame": 2243,
+    "text": "بقیه بخش‌های فنی"
+  },
+  {
+    "index": 30,
+    "first": 101,
+    "last": 104,
+    "fromFrame": 2243,
+    "toFrame": 2286,
+    "text": "و سخت رو بسپار"
+  },
+  {
+    "index": 31,
+    "first": 105,
+    "last": 107,
+    "fromFrame": 2286,
+    "toFrame": 2347,
+    "text": "به هوش مصنوعی."
+  },
+  {
+    "index": 32,
+    "first": 108,
+    "last": 111,
+    "fromFrame": 2355,
+    "toFrame": 2479,
+    "text": "و شماره چهار: گامبارو؛"
+  },
+  {
+    "index": 33,
+    "first": 112,
+    "last": 113,
+    "fromFrame": 2484,
+    "toFrame": 2582,
+    "text": "استمرار هوشمندانه!"
+  },
+  {
+    "index": 34,
+    "first": 114,
+    "last": 116,
+    "fromFrame": 2592,
+    "toFrame": 2616,
+    "text": "به جای اینکه"
+  },
+  {
+    "index": 35,
+    "first": 117,
+    "last": 119,
+    "fromFrame": 2616,
+    "toFrame": 2676,
+    "text": "یک ماه شبانه‌روز"
+  },
+  {
+    "index": 36,
+    "first": 120,
+    "last": 121,
+    "fromFrame": 2676,
+    "toFrame": 2700,
+    "text": "کار کنی"
+  },
+  {
+    "index": 37,
+    "first": 122,
+    "last": 124,
+    "fromFrame": 2700,
+    "toFrame": 2762,
+    "text": "و خسته بشی،"
+  },
+  {
+    "index": 38,
+    "first": 125,
+    "last": 127,
+    "fromFrame": 2766,
+    "toFrame": 2826,
+    "text": "سیستم تولیدت رو"
+  },
+  {
+    "index": 39,
+    "first": 128,
+    "last": 129,
+    "fromFrame": 2826,
+    "toFrame": 2880,
+    "text": "اتوماتیک کن"
+  },
+  {
+    "index": 40,
+    "first": 130,
+    "last": 132,
+    "fromFrame": 2880,
+    "toFrame": 2931,
+    "text": "تا کارهای تکراری"
+  },
+  {
+    "index": 41,
+    "first": 133,
+    "last": 136,
+    "fromFrame": 2931,
+    "toFrame": 2983,
+    "text": "و سخت روزانه رو"
+  },
+  {
+    "index": 42,
+    "first": 137,
+    "last": 140,
+    "fromFrame": 2983,
+    "toFrame": 3064,
+    "text": "هوش مصنوعی انجام بده."
+  },
+  {
+    "index": 43,
+    "first": 141,
+    "last": 144,
+    "fromFrame": 3077,
+    "toFrame": 3108,
+    "text": "پس اگه تو هم"
+  },
+  {
+    "index": 44,
+    "first": 145,
+    "last": 148,
+    "fromFrame": 3108,
+    "toFrame": 3235,
+    "text": "یه سامورایی شکست‌ناپذیر می‌شناسی،"
+  },
+  {
+    "index": 45,
+    "first": 149,
+    "last": 151,
+    "fromFrame": 3235,
+    "toFrame": 3264,
+    "text": "این ویدیو رو"
+  },
+  {
+    "index": 46,
+    "first": 152,
+    "last": 153,
+    "fromFrame": 3264,
+    "toFrame": 3312,
+    "text": "براش بفرست!"
+  }
+]

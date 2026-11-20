@@ -1,0 +1,23 @@
+{
+  "sampledFrames": 557,
+  "distinctWords": 172,
+  "labels": 2043,
+  "coverSamples": [
+    0,
+    8,
+    9,
+    11,
+    15,
+    17,
+    20,
+    21,
+    23,
+    29,
+    31,
+    33,
+    47
+  ],
+  "allFonts": true,
+  "stableBylineAtEverySample": true,
+  "issues": []
+}

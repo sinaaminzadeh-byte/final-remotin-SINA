@@ -1,0 +1,177 @@
+{
+  "sha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+  "file": "warmup-04-zero-capital-asset-v02-2k.mp4",
+  "bytes": 7037213,
+  "nativeRemotionOutput": [
+    1440,
+    2560
+  ],
+  "format": "H.264/yuv420p/BT.709 + AAC stereo 48 kHz",
+  "fps": "60/1",
+  "framesDecoded": 3215,
+  "durationSeconds": 53.583333,
+  "exactPresentationGrid": true,
+  "coverFrameSpanInclusive": [
+    0,
+    60
+  ],
+  "openingToPictureCutFrame": 61,
+  "coverPngVsEncodedFrameZeroPSNRdB": 37.93,
+  "signatureBoundsXYXY2K": [
+    468,
+    368,
+    972,
+    478
+  ],
+  "matchedSignatureEveryFrame": 3215,
+  "signatureMinLumaCorrelationAt126x28": 0.999835,
+  "worstSignatureLumaMADAt126x28": 0.7248,
+  "matchedAudioPacketsAndTimestamps": 2513,
+  "decodedStereoFloatPcmSHA256": "2f66e1cafcf36dcad5fd3962e15bbf8f33b53b2899ff98ba3be3bc57e828e3fc",
+  "sourceAudioMasterSHA256": "3803541d0c0e3ff0a99c9b503e76425fe3daf008f0a359604b32525233cdb886",
+  "scenesAfterOpeningTestedFrames": 3154,
+  "postOpeningMaxCoarseLumaMADOutsideHeader": 0.3083,
+  "postOpeningMaxAtFrame": 1952,
+  "existingActiveMotionWindows": {
+    "7": [
+      151,
+      10,
+      9
+    ],
+    "9": [
+      172,
+      8,
+      7
+    ],
+    "12": [
+      272,
+      9,
+      8
+    ],
+    "25": [
+      469,
+      9,
+      8
+    ],
+    "33": [
+      595,
+      8,
+      7
+    ],
+    "35": [
+      646,
+      11,
+      10
+    ],
+    "37": [
+      686,
+      8,
+      7
+    ],
+    "43": [
+      801,
+      9,
+      8
+    ],
+    "54": [
+      1042,
+      10,
+      9
+    ],
+    "64": [
+      1309,
+      10,
+      9
+    ],
+    "69": [
+      1393,
+      9,
+      8
+    ],
+    "78": [
+      1560,
+      8,
+      7
+    ],
+    "80": [
+      1604,
+      10,
+      9
+    ],
+    "91": [
+      1840,
+      11,
+      10
+    ],
+    "95": [
+      1898,
+      9,
+      8
+    ],
+    "106": [
+      2070,
+      9,
+      8
+    ],
+    "117": [
+      2235,
+      10,
+      9
+    ],
+    "128": [
+      2488,
+      9,
+      8
+    ],
+    "133": [
+      2575,
+      10,
+      9
+    ],
+    "136": [
+      2610,
+      10,
+      9
+    ],
+    "144": [
+      2780,
+      9,
+      8
+    ],
+    "151": [
+      2896,
+      10,
+      9
+    ],
+    "163": [
+      3080,
+      8,
+      7
+    ],
+    "169": [
+      3151,
+      8,
+      7
+    ]
+  },
+  "decodedProofFrames": [
+    0,
+    31,
+    60,
+    61,
+    242,
+    544,
+    650,
+    1101,
+    1480,
+    1674,
+    1976,
+    2254,
+    2651,
+    2949,
+    3185,
+    3214
+  ],
+  "inAppInstagramPreview": false,
+  "humanApprovalOfVideo": "awaiting user review"
+}

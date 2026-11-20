@@ -1,0 +1,74 @@
+{
+  "fps": 60,
+  "width": 1080,
+  "height": 1920,
+  "durationInFrames": 3215,
+  "wordCount": 172,
+  "narrationHz": 24000,
+  "narrationSamples": 1285800,
+  "narrationSeconds": 53.575,
+  "voiceGain": 1,
+  "elementGain": 0.3,
+  "shots": [
+    {
+      "name": "wallet",
+      "word": 0,
+      "frame": 0
+    },
+    {
+      "name": "trolley",
+      "word": 12,
+      "frame": 271
+    },
+    {
+      "name": "salary",
+      "word": 31,
+      "frame": 571
+    },
+    {
+      "name": "edition",
+      "word": 40,
+      "frame": 779
+    },
+    {
+      "name": "keep",
+      "word": 61,
+      "frame": 1242
+    },
+    {
+      "name": "workshop",
+      "word": 75,
+      "frame": 1507
+    },
+    {
+      "name": "week",
+      "word": 88,
+      "frame": 1771
+    },
+    {
+      "name": "readers",
+      "word": 102,
+      "frame": 1995
+    },
+    {
+      "name": "archive",
+      "word": 108,
+      "frame": 2123
+    },
+    {
+      "name": "service",
+      "word": 119,
+      "frame": 2307
+    },
+    {
+      "name": "property",
+      "word": 139,
+      "frame": 2696
+    },
+    {
+      "name": "follow",
+      "word": 156,
+      "frame": 2995
+    }
+  ]
+}

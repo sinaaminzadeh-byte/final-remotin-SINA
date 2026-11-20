@@ -1,0 +1,16 @@
+{
+  "approved": true,
+  "appliesTo": "every new production and every future intentional re-edit in this series",
+  "cover": "Question-led cover 1, project-specific hook and hero, starting on frame zero",
+  "signature": "Hairline 1, true square portrait on the right, Sina name and tagline, single static overlay from first to last frame",
+  "bounds1440x2560": [
+    468,
+    368,
+    972,
+    478
+  ],
+  "referenceVideoSHA256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+  "poster": "examples/cover-1440.png",
+  "interiorReference": "examples/interior-1440.png",
+  "note": "Final branded video and use of this identity as the continuing production rule confirmed by the user after local delivery. Publication is recorded separately."
+}

@@ -1,0 +1,224 @@
+{
+  "schema_version": "1.0.0",
+  "name": "Novak Web — Reels Motion System",
+  "canvas": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 60
+  },
+  "brand": {
+    "primary": "#146EF5",
+    "success": "#00B86B",
+    "ink": "#17263D",
+    "muted": "#64748B",
+    "warning": "#BE654B",
+    "paper": "#F3F1EA",
+    "success_text": "#007A47"
+  },
+  "safe_zones": {
+    "meta_reels_ads": {
+      "top_fraction": 0.14,
+      "bottom_fraction": 0.35,
+      "side_fraction": 0.06,
+      "rect_px": [
+        65,
+        269,
+        1015,
+        1248
+      ]
+    },
+    "meta_reels_ads_with_disclaimer": {
+      "bottom_fraction": 0.4,
+      "rect_px": [
+        65,
+        269,
+        1015,
+        1152
+      ]
+    },
+    "novak_critical_rect_px": [
+      64,
+      280,
+      952,
+      1456
+    ],
+    "stage_clip_rect_px": [
+      64,
+      280,
+      952,
+      1304
+    ],
+    "top_caption_rect_px": [
+      112,
+      312,
+      908,
+      388
+    ],
+    "bottom_caption_rect_px": [
+      80,
+      1320,
+      936,
+      1440
+    ],
+    "signature_rect_px": [
+      80,
+      1444,
+      936,
+      1456
+    ],
+    "rationale": "User-selected balanced organic Reel composition: larger scene/captions while retaining top and right UI clearance. Deliberately less conservative at bottom than Meta advertising guidance; not claiming compliance with 35/40% ad safe zones or expanded caption UI. Validate in publishing app."
+  },
+  "stage": {
+    "logical_center": [
+      540,
+      900
+    ],
+    "scale": 1.0,
+    "translation_px": [
+      -32,
+      -70
+    ],
+    "final_axis_x": 508,
+    "camera_max_scale": 1.02,
+    "camera_max_pan_logical": 12
+  },
+  "spacing": {
+    "grid_px": 8,
+    "xs": 8,
+    "sm": 16,
+    "md": 24,
+    "lg": 32,
+    "xl": 48,
+    "critical_text_to_stage_min_px": 16,
+    "card_text_padding_logical": 40
+  },
+  "components": {
+    "wide_card_logical": [
+      830,
+      460
+    ],
+    "wide_card_px": [
+      830,
+      460
+    ],
+    "portrait_card_logical": [
+      660,
+      710
+    ],
+    "portrait_card_px": [
+      660,
+      710
+    ],
+    "small_card_logical": [
+      270,
+      410
+    ],
+    "small_card_px": [
+      270,
+      410
+    ],
+    "pill_logical": [
+      210,
+      76
+    ],
+    "pill_px": [
+      210,
+      76
+    ],
+    "radius_logical": {
+      "card": 30,
+      "compact": 20,
+      "device": 40,
+      "pill": "half height"
+    },
+    "radius_px": {
+      "card": 30,
+      "compact": 20,
+      "device": 40
+    },
+    "shadow": {
+      "blur_logical": 18,
+      "offset_y_logical": 14,
+      "opacity": 0.2
+    },
+    "intentional_overlaps": [
+      "offer backing cards behind main face",
+      "brief outgoing/incoming transition layers",
+      "mascot on device",
+      "people aggregation"
+    ],
+    "forbidden_overlaps": [
+      "caption versus stage text",
+      "two readable text blocks",
+      "text versus card padding",
+      "main labels versus right app rail",
+      "signature versus caption"
+    ]
+  },
+  "typography": {
+    "family_only": "Doran FaNum",
+    "files": {
+      "regular": "DoranFaNum-Bold.ttf",
+      "demibold": "DoranFaNum-Black.ttf",
+      "bold": "DoranFaNum-Bold.ttf",
+      "black": "DoranFaNum-Black.ttf",
+      "cta": "DoranFaNum-ExtraBold.ttf"
+    },
+    "roles": {
+      "body": "bold 700",
+      "label": "extraBold 800",
+      "title": "black 900",
+      "caption": "bold 700",
+      "display_number": "black 900"
+    },
+    "caption_size_px": 72,
+    "caption_min_px": 52,
+    "caption_max_words": 4,
+    "body_logical_min": 34,
+    "body_final_min_px": 34,
+    "caption_align": "ink-centered; dedicated 120px-high line; 72px Doran glyph metrics",
+    "ui_direction": "rtl",
+    "centering": "tight ink bounds, not font ascender metrics; center inside explicit component rectangles",
+    "overflow": "reduce font within permitted bounds or shorten/reflow; never stretch glyphs horizontally and never render outside the box",
+    "micro_label_final_min_px": 26,
+    "contrast": {
+      "normal_text_min": 4.5,
+      "large_text_min": 3.0,
+      "note": "Use dark ink on gold; white on dark blue/dark green. Brand green is not used for small text on white."
+    },
+    "family": "Doran FaNum",
+    "role_weights": {
+      "heading": 900,
+      "price": 900,
+      "cta": 800,
+      "badge": 800,
+      "meta": 700,
+      "caption": 700
+    }
+  },
+  "motion": {
+    "entry_seconds": 0.45,
+    "cue_lead_seconds": 0.26,
+    "flip_seconds": 0.5,
+    "transition_seconds": 0.25,
+    "read_hold_motion": "calm 0–3.5% reframing",
+    "time_source": "aligned-words.json + cues.json",
+    "caption_delay_seconds": 0.0
+  },
+  "sources": [
+    {
+      "url": "https://www.facebook.com/business/ads-guide/update/video/instagram-reels",
+      "note": "Official Reels ads guide: leave at least 14% top, 35% bottom, 6% sides free of important elements. Recommends 1440x2560; this project preserves the user's requested 1080x1920 and applies the percentages."
+    },
+    {
+      "url": "https://www.facebook.com/business/help/980593475366490",
+      "note": "Official safe-zone guidance: for Reels ads including disclaimers leave bottom 40% clear; verify using Ads Manager Safe zone guardrail. Organic UI may vary."
+    }
+  ],
+  "layout_profile": "balanced-organic-user-selected",
+  "motion_semantics": {
+    "rule": "Every new semantic clause requires a visual state/relation change anchored to its spoken word; subtitle changes, camera drift and decorative loops do not count. Intentional reading holds must be logged.",
+    "max_unexplained_hold_seconds": 2.5,
+    "sampling": "Evaluate geometry/state at t=i/60; never duplicate 30fps output frames."
+  }
+}

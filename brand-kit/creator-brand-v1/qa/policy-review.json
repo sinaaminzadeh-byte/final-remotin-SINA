@@ -1,0 +1,32 @@
+{
+  "sourceMainReviewed": "912e235ef585662f1fd7b74b6e137715a23e30f8",
+  "scope": "reference promotion + policy unification; no new or historical video was rendered",
+  "before": {
+    "AGENTS.md": "explicit engine prohibition + founder primary",
+    "MOTION_SYSTEM.md": "V5, 30fps and omitted personal identity coexisted with later overrides",
+    "README.md": "V5 as official sample",
+    "targetedTrendCommit": {
+      "commit": "9acb40ff776b55478bca5f93ea9b9eba12517946",
+      "countReturned": 35,
+      "globalChanges": [],
+      "projectFolders": [
+        "projects/trend-motion-v01"
+      ]
+    }
+  },
+  "after": {
+    "reference": "projects/warmup-04-zero-capital-asset-v01/revisions/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4",
+    "referenceVideoSHA256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
+    "sampleReadAndFullyDecoded": true,
+    "referencesAndKitValidated": true,
+    "relativeDocumentLinksChecked": 75,
+    "negativeControls": {
+      "obsoleteEngineRule": "rejected",
+      "missingMediaOrPointer": "rejected"
+    },
+    "archivalPromptSanitized": true,
+    "historyRewritten": false,
+    "portraitSourceSHA256": "4950eaca21697ea82afbb31330231de24372ddfe73e1f9c008645b4917066bae",
+    "otherRepoWritten": false
+  }
+}

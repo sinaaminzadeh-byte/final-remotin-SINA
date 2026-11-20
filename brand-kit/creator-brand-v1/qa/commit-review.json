@@ -1,0 +1,43 @@
+{
+  "mistake_register_sha256": "898e401594a6eecebac483eb881847edddb721df6526e68d0db0dac8f2ba7482",
+  "checked_mistake_ids": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020"
+  ],
+  "read_before_production": true,
+  "reviewed_before_commit": true,
+  "new_mistakes_found": true,
+  "new_mistake_ids": [
+    "M019",
+    "M020"
+  ],
+  "new_mistakes_note": "Conflicting active policy and credential-shaped text in historical root prompt; both registered with evidence without leaking the value. This change promotes the explicitly approved MP4, not a new render.",
+  "new_video_user_approval": "approved",
+  "evidence_paths": [
+    "approval.json",
+    "qa/policy-review.json",
+    "qa/reference-check.json",
+    "examples/cover-1440.png",
+    "examples/interior-1440.png",
+    "../../projects/warmup-04-zero-capital-asset-v01/revisions/brand-v02/qa/approval.json",
+    "../../projects/warmup-04-zero-capital-asset-v01/revisions/brand-v02/qa/verification.json"
+  ]
+}
