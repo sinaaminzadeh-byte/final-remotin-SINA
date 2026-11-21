@@ -9,7 +9,7 @@
 
 قوانین و مرجع قفل‌شده‌اند — قبل از هر کار دقیقاً به این ترتیب عمل کن:
 1. فایل‌های `AGENTS.md`، `rules/LOCKED_RULES.md`، `rules/CURRENT_REFERENCE.json`، `rules/VISUAL_IDENTITY.md`، `rules/PRODUCTION_PLAYBOOK.md`، `rules/skills/semantic-motion/SKILL.md` و `rules/KNOWN_MISTAKES.md` را بخوان.
-2. مرجع طلایی `references/warmup-04-brand-v02/` را بررسی کن: هم فریم‌های `brand-v02/qa/encoded-review.jpg` و ویدیوی `brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4`، و هم کد صحنه‌های والد در `parent-src/` (`core.tsx`, `objects.tsx`, `begin.tsx`, `build.tsx`) و `semantic-beats.json` را ببین تا دقیقاً همان سطح بافت لمسی، ریزکنش‌های درون‌شیء و تداوم اشیا بین صحنه‌ها را اجرا کنی.
+2. مرجع طلایی `references/flywheel-effect-v01/` را بررسی کن: هم فریم‌های `qa/encoded-review.jpg`، `cover-2k.png` و ویدیوی `flywheel-effect-v01-2k.mp4`، و هم کد صحنه‌های مرجع در `src/` (`core.tsx`, `objects.tsx`, `Opening.tsx`, `scenes1.tsx`, `scenes2.tsx`, `index.tsx`) و `semantic-beats.json` را ببین تا دقیقاً همان سطح بافت لمسی، پترن زیرلایهٔ سبک ۴ (`TechMatrixBackdrop`)، فیزیک چندجرمه، `@remotion/paths`، ریزکنش‌های درون‌شیء و تداوم اشیا بین صحنه‌ها را اجرا کنی.
 3. پروژهٔ جدید را فقط با دستور `python3 scripts/new_project.py <slug>` بساز تا کیت `creator-brand-v1`، فونت Doran FaNum، `QuestionCover`، `CreatorSignature`، `background.png`، `pixel-mark.png`، موتور تایپ `T()` و `audit.tsx` دقیقاً مطابق تبار A نصب شوند. هیچ‌چیز را از صفر یا با `paper.jpg` و آیکن‌های تخت بازنویسی نکن.
 4. فایل صوتی ورودی را با `scripts/ctc.py` روی متن دقیق زیر ترازبندی کن (اگر صوت از قبل سرعت‌داده‌شده، دوباره تندش نکن). یک ساعت مشترک برای کپشن واژه‌به‌واژه، ریزکنش‌های تصویری و SFX (با گین ۰٫۳۰ در برابر نریشن ۱٫۰) بساز.
 5. کارگردانی و استوری‌بورد مخصوص همین موضوع را طراحی کن:

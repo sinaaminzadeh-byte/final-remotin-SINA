@@ -1,0 +1,30 @@
+{
+  "mistake_register_sha256": "f68380aaba4d67452d71e0f2c5ce32d038a9f0932cf6b7c066521f0cc72a010c",
+  "checked_mistake_ids": [
+    "M001",
+    "M002",
+    "M003",
+    "M004",
+    "M005",
+    "M006",
+    "M007",
+    "M008",
+    "M009",
+    "M010",
+    "M011",
+    "M012",
+    "M013",
+    "M014",
+    "M015",
+    "M016",
+    "M017",
+    "M018",
+    "M019",
+    "M020",
+    "M021",
+    "M022"
+  ],
+  "summary": "All M001-M022 reviewed before and after production (upgraded with Style 04 TechMatrixBackdrop underlay + Multi-Mass Springs + @remotion/paths + Micro-Impact + Camera Rig + Sheen). Lineage A creator-brand-v1 kit intact (SHA-256 verified), zero paper.jpg/Lineage B artifacts, zero RTL '<'/'>' ambiguity, 55 intra-object semantic beats (1.38/s, max gap 1.65s), 8 cross-scene object continuities (M006), 0 layout/ink audit issues across 422 sampled frames (134/134 words), native 1440x2560 @ 60fps CFR verified, 0 audio speech dropouts across 362 active 100ms windows (min corr 0.9977).",
+  "human_listening_performed": false,
+  "status": "implemented-awaiting-user-review"
+}

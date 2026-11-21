@@ -66,6 +66,7 @@ all_src = "\n".join(f.read_text(encoding="utf-8", errors="ignore") for f in src_
 must_have_tokens = {
     "QuestionCover": "QuestionCover",
     "CreatorSignature": "CreatorSignature",
+    "TechMatrixBackdrop": "TechMatrixBackdrop",
     "actualBoundingBox": "actualBoundingBox",
     "auditComponent": "TYPECHECK ",
     "liftShadow": "heavyLift",

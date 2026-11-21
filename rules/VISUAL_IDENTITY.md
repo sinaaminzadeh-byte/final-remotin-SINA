@@ -1,12 +1,12 @@
-# راهنمای قطعی هویت بصری — تبار A (`Warmup 04 · brand-v02`)
+# راهنمای قطعی هویت بصری — تبار A (`Flywheel Effect v01` · ریشهٔ `Warmup 04`)
 
-**مرجع طلایی:** `references/warmup-04-brand-v02/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4` به‌همراه سورس کامل صحنه‌های والد در `references/warmup-04-brand-v02/parent-src/` و کیت `brand-kit/creator-brand-v1/`.
+**مرجع طلایی فعلی:** `references/flywheel-effect-v01/flywheel-effect-v01-2k.mp4` به‌همراه سورس کامل در `references/flywheel-effect-v01/src/` و کیت `brand-kit/creator-brand-v1/`. (مرجع تاریخی ریشه: `references/warmup-04-brand-v02/`).
 
 ---
 
 ## ۱. جلد پرسشی (`QuestionCover`) و امضای خط باریک (`CreatorSignature`)
 - **جلد فریم ۰:** از کامپوننت رسمی `QuestionCover.tsx` کیت استفاده کن:
-  - پس‌زمینهٔ رسمی `background.png` + خورشید گرم (`#F2DEAA → #DAC29B`) با بافت `paper-grain.png` و نقطه-بافت طلایی.
+  - پس‌زمینهٔ رسمی `background.png` + **زیرلایهٔ سبک ۴ (`TechMatrixBackdrop` با شفافیت `0.17` و مد `multiply`) دقیقاً زیر خورشید و تمام لایه‌ها** + خورشید گرم (`#F2DEAA → #DAC29B`) با بافت `paper-grain.png` و نقطه-بافت طلایی.
   - روتیتر کوتاه میان دو خط برنجی نقطه‌دار (در `f < A(0)` نمایش داده می‌شود و با شروع گفتار، کپشن عبارت اول جای آن را می‌گیرد).
   - تیتر دوخطی با `Doran Black 900`: سطر اول جوهر سرمه‌ای `#17263D`، سطر دوم آبی اصلی `#146EF5`.
   - شیء قهرمان صحنهٔ اول همین موضوع روی مرکز `[517, 1237]` با سایهٔ گرم `Shade`.

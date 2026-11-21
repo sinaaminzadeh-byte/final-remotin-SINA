@@ -8,3 +8,5 @@ __pycache__/
 .env
 .env.*
 inputs.local.json
+projects/*/qa/proofs/
+

@@ -1,0 +1,354 @@
+[
+  {
+    "index": 0,
+    "first": 0,
+    "last": 2,
+    "fromFrame": 8,
+    "toFrame": 55,
+    "text": "توی علم مدیریت"
+  },
+  {
+    "index": 1,
+    "first": 3,
+    "last": 6,
+    "fromFrame": 55,
+    "toFrame": 105,
+    "text": "مفهومی داریم به اسم"
+  },
+  {
+    "index": 2,
+    "first": 7,
+    "last": 9,
+    "fromFrame": 105,
+    "toFrame": 212,
+    "text": "«اثر فلای‌ویل» (Flywheel)."
+  },
+  {
+    "index": 3,
+    "first": 10,
+    "last": 13,
+    "fromFrame": 212,
+    "toFrame": 260,
+    "text": "فرض کن یک چرخ"
+  },
+  {
+    "index": 4,
+    "first": 14,
+    "last": 16,
+    "fromFrame": 260,
+    "toFrame": 309,
+    "text": "سنگین فلزی رو"
+  },
+  {
+    "index": 5,
+    "first": 17,
+    "last": 18,
+    "fromFrame": 309,
+    "toFrame": 365,
+    "text": "می‌خوای بچرخونی؛"
+  },
+  {
+    "index": 6,
+    "first": 19,
+    "last": 21,
+    "fromFrame": 365,
+    "toFrame": 423,
+    "text": "اولش باید تمام"
+  },
+  {
+    "index": 7,
+    "first": 22,
+    "last": 24,
+    "fromFrame": 423,
+    "toFrame": 456,
+    "text": "زورت رو بذاری"
+  },
+  {
+    "index": 8,
+    "first": 25,
+    "last": 27,
+    "fromFrame": 456,
+    "toFrame": 494,
+    "text": "تا فقط یک"
+  },
+  {
+    "index": 9,
+    "first": 28,
+    "last": 29,
+    "fromFrame": 494,
+    "toFrame": 545,
+    "text": "دور بچرخه!"
+  },
+  {
+    "index": 10,
+    "first": 30,
+    "last": 32,
+    "fromFrame": 545,
+    "toFrame": 603,
+    "text": "خیلی‌ها دقیقاً همین‌جا"
+  },
+  {
+    "index": 11,
+    "first": 33,
+    "last": 36,
+    "fromFrame": 603,
+    "toFrame": 654,
+    "text": "خسته میشن و میگن"
+  },
+  {
+    "index": 12,
+    "first": 37,
+    "last": 39,
+    "fromFrame": 654,
+    "toFrame": 683,
+    "text": "این کار اصلاً"
+  },
+  {
+    "index": 13,
+    "first": 40,
+    "last": 41,
+    "fromFrame": 683,
+    "toFrame": 740,
+    "text": "جواب نمیده!"
+  },
+  {
+    "index": 14,
+    "first": 42,
+    "last": 44,
+    "fromFrame": 740,
+    "toFrame": 797,
+    "text": "اما حقیقت اینه:"
+  },
+  {
+    "index": 15,
+    "first": 45,
+    "last": 47,
+    "fromFrame": 797,
+    "toFrame": 888,
+    "text": "چرخش اول، انرژیِ"
+  },
+  {
+    "index": 16,
+    "first": 48,
+    "last": 50,
+    "fromFrame": 888,
+    "toFrame": 937,
+    "text": "دورهای بعدی رو"
+  },
+  {
+    "index": 17,
+    "first": 51,
+    "last": 52,
+    "fromFrame": 937,
+    "toFrame": 996,
+    "text": "ذخیره می‌کنه."
+  },
+  {
+    "index": 18,
+    "first": 53,
+    "last": 55,
+    "fromFrame": 1001,
+    "toFrame": 1042,
+    "text": "توی تولید محتوا"
+  },
+  {
+    "index": 19,
+    "first": 56,
+    "last": 58,
+    "fromFrame": 1042,
+    "toFrame": 1107,
+    "text": "هم دقیقاً همینه؛"
+  },
+  {
+    "index": 20,
+    "first": 59,
+    "last": 61,
+    "fromFrame": 1107,
+    "toFrame": 1139,
+    "text": "ده تای اول"
+  },
+  {
+    "index": 21,
+    "first": 62,
+    "last": 64,
+    "fromFrame": 1139,
+    "toFrame": 1215,
+    "text": "هیچ اتفاقی نمی‌افته،"
+  },
+  {
+    "index": 22,
+    "first": 65,
+    "last": 67,
+    "fromFrame": 1215,
+    "toFrame": 1265,
+    "text": "اما سیستم از"
+  },
+  {
+    "index": 23,
+    "first": 68,
+    "last": 71,
+    "fromFrame": 1265,
+    "toFrame": 1332,
+    "text": "ویدیوی بیستم به بعد"
+  },
+  {
+    "index": 24,
+    "first": 72,
+    "last": 74,
+    "fromFrame": 1332,
+    "toFrame": 1424,
+    "text": "شتاب تصاعدی می‌گیره!"
+  },
+  {
+    "index": 25,
+    "first": 75,
+    "last": 78,
+    "fromFrame": 1430,
+    "toFrame": 1479,
+    "text": "اشتباه بزرگ اینه که"
+  },
+  {
+    "index": 26,
+    "first": 79,
+    "last": 81,
+    "fromFrame": 1479,
+    "toFrame": 1520,
+    "text": "فکر می‌کنی نتیجه"
+  },
+  {
+    "index": 27,
+    "first": 82,
+    "last": 85,
+    "fromFrame": 1520,
+    "toFrame": 1576,
+    "text": "باید همون روز اول"
+  },
+  {
+    "index": 28,
+    "first": 86,
+    "last": 87,
+    "fromFrame": 1576,
+    "toFrame": 1620,
+    "text": "دیده بشه."
+  },
+  {
+    "index": 29,
+    "first": 88,
+    "last": 91,
+    "fromFrame": 1620,
+    "toFrame": 1681,
+    "text": "وقتی با هوش مصنوعی"
+  },
+  {
+    "index": 30,
+    "first": 92,
+    "last": 94,
+    "fromFrame": 1681,
+    "toFrame": 1721,
+    "text": "ریتم ساختت رو"
+  },
+  {
+    "index": 31,
+    "first": 95,
+    "last": 96,
+    "fromFrame": 1721,
+    "toFrame": 1766,
+    "text": "آسون کنی،"
+  },
+  {
+    "index": 32,
+    "first": 97,
+    "last": 99,
+    "fromFrame": 1766,
+    "toFrame": 1821,
+    "text": "استمرار برات مثل"
+  },
+  {
+    "index": 33,
+    "first": 100,
+    "last": 102,
+    "fromFrame": 1821,
+    "toFrame": 1880,
+    "text": "آب خوردن میشه"
+  },
+  {
+    "index": 34,
+    "first": 103,
+    "last": 106,
+    "fromFrame": 1880,
+    "toFrame": 1938,
+    "text": "و اون چرخ سنگین،"
+  },
+  {
+    "index": 35,
+    "first": 107,
+    "last": 109,
+    "fromFrame": 1938,
+    "toFrame": 1993,
+    "text": "بالاخره با انرژی"
+  },
+  {
+    "index": 36,
+    "first": 110,
+    "last": 112,
+    "fromFrame": 1993,
+    "toFrame": 2031,
+    "text": "صفر شروع به"
+  },
+  {
+    "index": 37,
+    "first": 113,
+    "last": 114,
+    "fromFrame": 2031,
+    "toFrame": 2097,
+    "text": "چرخیدن می‌کنه!"
+  },
+  {
+    "index": 38,
+    "first": 115,
+    "last": 117,
+    "fromFrame": 2111,
+    "toFrame": 2138,
+    "text": "این ویدیو رو"
+  },
+  {
+    "index": 39,
+    "first": 118,
+    "last": 120,
+    "fromFrame": 2138,
+    "toFrame": 2188,
+    "text": "حتماً نگه دار"
+  },
+  {
+    "index": 40,
+    "first": 121,
+    "last": 123,
+    "fromFrame": 2188,
+    "toFrame": 2214,
+    "text": "که هر وقت"
+  },
+  {
+    "index": 41,
+    "first": 124,
+    "last": 125,
+    "fromFrame": 2214,
+    "toFrame": 2259,
+    "text": "ناامید شدی،"
+  },
+  {
+    "index": 42,
+    "first": 126,
+    "last": 129,
+    "fromFrame": 2259,
+    "toFrame": 2317,
+    "text": "یادت بیاد چرخ فلزی"
+  },
+  {
+    "index": 43,
+    "first": 130,
+    "last": 133,
+    "fromFrame": 2317,
+    "toFrame": 2388,
+    "text": "داره انرژی جمع می‌کنه..."
+  }
+]

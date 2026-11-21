@@ -1,0 +1,74 @@
+{
+  "slug": "flywheel-effect-v01",
+  "compositionId": "FlywheelEffect",
+  "fps": 60,
+  "width": 1080,
+  "height": 1920,
+  "scale": 1.3333333333333333,
+  "outputWidth": 1440,
+  "outputHeight": 2560,
+  "durationSeconds": 39.8003,
+  "durationInFrames": 2388,
+  "narrationHz": 24000,
+  "voiceGain": 1.0,
+  "elementGain": 0.3,
+  "openingEndFrame": 55,
+  "shots": [
+    {
+      "id": "flywheel-concept",
+      "name": "FlywheelConcept",
+      "frame": 55,
+      "word": 3,
+      "wipe": false
+    },
+    {
+      "id": "first-heavy-push",
+      "name": "FirstHeavyPush",
+      "frame": 212,
+      "word": 10,
+      "wipe": false
+    },
+    {
+      "id": "burnout-quit-trap",
+      "name": "BurnoutQuitTrap",
+      "frame": 545,
+      "word": 30,
+      "wipe": false
+    },
+    {
+      "id": "stored-energy-truth",
+      "name": "StoredEnergyTruth",
+      "frame": 740,
+      "word": 42,
+      "wipe": true
+    },
+    {
+      "id": "content-momentum",
+      "name": "ContentMomentumCurve",
+      "frame": 1001,
+      "word": 53,
+      "wipe": false
+    },
+    {
+      "id": "day-one-mistake",
+      "name": "DayOneMistake",
+      "frame": 1430,
+      "word": 75,
+      "wipe": true
+    },
+    {
+      "id": "ai-rhythm-zero",
+      "name": "AIRhythmZeroEffort",
+      "frame": 1620,
+      "word": 88,
+      "wipe": true
+    },
+    {
+      "id": "save-flywheel-cta",
+      "name": "SaveFlywheelCTA",
+      "frame": 2111,
+      "word": 115,
+      "wipe": true
+    }
+  ]
+}

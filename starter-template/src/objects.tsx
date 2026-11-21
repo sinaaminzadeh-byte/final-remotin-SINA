@@ -1,5 +1,89 @@
-import React from "react";
+import React, { useId } from "react";
 import { C, T, Tick, Screw, range, tr, clamp, mix } from "./core";
+
+// Style 04 (Minimal Tech Matrix) — always placed strictly underneath all foreground layers
+export function TechMatrixBackdrop({ opacity = 0.17 }: { opacity?: number }) {
+  const id = useId();
+  return (
+    <g opacity={opacity} style={{ mixBlendMode: "multiply" }}>
+      <defs>
+        <pattern
+          id={id}
+          width="216"
+          height="216"
+          patternUnits="userSpaceOnUse"
+        >
+          <circle cx="36" cy="36" r="3.2" fill="#3B5B84" opacity="0.78" />
+          <circle cx="144" cy="36" r="3.2" fill="#3B5B84" opacity="0.48" />
+          <circle cx="36" cy="144" r="3.2" fill="#3B5B84" opacity="0.48" />
+          <circle cx="144" cy="144" r="3.2" fill="#3B5B84" opacity="0.78" />
+          <path
+            d="M36 36 H144 V144"
+            fill="none"
+            stroke="#3B5B84"
+            strokeWidth="1.8"
+            opacity="0.54"
+          />
+          <path
+            d="M144 144 H216 M36 144 V216"
+            fill="none"
+            stroke="#3B5B84"
+            strokeWidth="1.6"
+            strokeDasharray="6 8"
+            opacity="0.46"
+          />
+          <circle
+            cx="144"
+            cy="36"
+            r="7.5"
+            fill="none"
+            stroke="#3B5B84"
+            strokeWidth="1.6"
+            opacity="0.56"
+          />
+        </pattern>
+      </defs>
+      <rect width="1080" height="1920" fill={`url(#${id})`} />
+    </g>
+  );
+}
+
+// Specular light sheen sweep clipped cleanly to a rounded button or nameplate
+export function SheenOverlay({
+  x,
+  y,
+  w,
+  h,
+  rx = 16,
+  progress,
+}: {
+  x: number;
+  y: number;
+  w: number;
+  h: number;
+  rx?: number;
+  progress: number;
+}) {
+  const id = useId();
+  if (progress < 0 || progress > 1) return null;
+  const cx = x - 60 + (w + 120) * progress;
+  return (
+    <g pointerEvents="none">
+      <defs>
+        <clipPath id={id}>
+          <rect x={x} y={y} width={w} height={h} rx={rx} />
+        </clipPath>
+      </defs>
+      <g clipPath={`url(#${id})`}>
+        <path
+          d={`M${cx - 28} ${y - 20}h32l-26 ${h + 40}h-32z`}
+          fill="#FFFFFF"
+          opacity="0.28"
+        />
+      </g>
+    </g>
+  );
+}
 
 export const O = {
   blue: "#146EF5",

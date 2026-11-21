@@ -1,0 +1,15 @@
+{
+  "narrationGain": 1.0,
+  "sfxBusGain": 0.3,
+  "narrationInputSHA256": "307567b59f4e396a83901dbbc6ff9edad9fac753f3a5610e6bd4460379a42921",
+  "sourceRate": 24000,
+  "mixRate": 48000,
+  "pcmSamplesPerChannel": 1910400,
+  "narrationSampleCountAt48k": 1910416,
+  "padOnlyAtEndSamples": 0,
+  "narrationRmsDbfs": -17.36,
+  "sfxPostFaderRmsDbfs": -46.3,
+  "mixPeakDbfs": -1.659,
+  "eventsCount": 55,
+  "notes": "Original 1.0x MP3 decoded gaplessly at unity in both channels; no time stretch, no normalization, no slicing across scenes. Subtle synthesized paper/wood/switch/chime SFX at 0.30 gain."
+}

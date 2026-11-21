@@ -1,31 +1,37 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "locked": true,
-  "lineage": "Lineage A (Warmup 04 brand-v02 + 8f12c76 parent choreography)",
-  "sampleId": "warmup-04-brand-v02-2k",
+  "lineage": "Lineage A v2 (Flywheel Effect 2K/60 — Style 04 TechMatrixBackdrop + Multi-Mass Physics + @remotion/paths; rooted in Warmup 04 brand-v02)",
+  "sampleId": "flywheel-effect-v01-2k",
   "primaryReference": {
-    "video": "references/warmup-04-brand-v02/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4",
-    "sha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22",
-    "bytes": 7037213,
-    "encodedReview": "references/warmup-04-brand-v02/brand-v02/qa/encoded-review.jpg",
-    "poster": "brand-kit/creator-brand-v1/examples/cover-1440.png",
+    "video": "references/flywheel-effect-v01/flywheel-effect-v01-2k.mp4",
+    "sha256": "8d90a892d47cb0b35bc3294a33a0463ec14be807014fef662c8c3390acaddac3",
+    "bytes": 7170668,
+    "encodedReview": "references/flywheel-effect-v01/qa/encoded-review.jpg",
+    "proofSheet": "references/flywheel-effect-v01/qa/proof-sheet.jpg",
+    "poster": "references/flywheel-effect-v01/cover-2k.png",
     "interior": "brand-kit/creator-brand-v1/examples/interior-1440.png",
-    "semanticBeats": "references/warmup-04-brand-v02/semantic-beats.json",
-    "beatsCountInSample": 72
+    "semanticBeats": "references/flywheel-effect-v01/semantic-beats.json",
+    "beatsCountInSample": 55,
+    "beatsPerSecondInSample": 1.382
   },
   "parentReferenceSource": {
-    "originCommit": "8f12c76c591ec92f2cef2323b6c9465495f06d54",
-    "note": "Read these files for tactile SVG material craft, intra-object micro-actions, and cross-scene continuity.",
+    "originSlug": "flywheel-effect-v01",
+    "note": "Read these files for Style 04 TechMatrixBackdrop underlay, multi-mass springs, @remotion/paths choreography, impactShake, SheenOverlay, tactile SVG material craft, and cross-scene continuity.",
     "files": [
-      "references/warmup-04-brand-v02/parent-src/audit.tsx",
-      "references/warmup-04-brand-v02/parent-src/begin.tsx",
-      "references/warmup-04-brand-v02/parent-src/build.tsx",
-      "references/warmup-04-brand-v02/parent-src/convert.tsx",
-      "references/warmup-04-brand-v02/parent-src/core.tsx",
-      "references/warmup-04-brand-v02/parent-src/index.tsx",
-      "references/warmup-04-brand-v02/parent-src/objects.tsx",
-      "references/warmup-04-brand-v02/parent-src/publish.tsx"
+      "references/flywheel-effect-v01/src/audit.tsx",
+      "references/flywheel-effect-v01/src/core.tsx",
+      "references/flywheel-effect-v01/src/objects.tsx",
+      "references/flywheel-effect-v01/src/Opening.tsx",
+      "references/flywheel-effect-v01/src/scenes1.tsx",
+      "references/flywheel-effect-v01/src/scenes2.tsx",
+      "references/flywheel-effect-v01/src/index.tsx"
     ]
+  },
+  "historicalLineageRoot": {
+    "sampleId": "warmup-04-brand-v02-2k",
+    "video": "references/warmup-04-brand-v02/brand-v02/warmup-04-zero-capital-asset-v02-2k.mp4",
+    "sha256": "403a39e5acf20bdebb0360c5de9f5452f92e9ad2a1b2b88db00f5f08c55b8f22"
   },
   "production": {
     "renderer": "Remotion",
@@ -56,7 +62,26 @@
     "microActionTargetPerSecond": [
       1.0,
       1.4
-    ]
+    ],
+    "backdropPattern": {
+      "style": "Style 04 Minimal Tech Matrix (TechMatrixBackdrop)",
+      "tilePx1080": 216,
+      "color": "#3B5B84",
+      "blendMode": "multiply",
+      "opacity": 0.17,
+      "layerPosition": "strictly underneath all foreground elements (below QuestionCover solar disc and below stage SVG)"
+    },
+    "motionUpgrade": {
+      "multiMassSprings": [
+        "spHeavy",
+        "spSnap",
+        "spPop"
+      ],
+      "remotionPaths": "@remotion/paths (evolvePath, getPointAtLength)",
+      "microImpactShake": "impactShake",
+      "sheenSweep": "SheenOverlay",
+      "stageCameraRig": "gentle stage-only zoom/pan keeping CreatorSignature and Captions rock-steady"
+    }
   },
   "brandKit": {
     "root": "brand-kit/creator-brand-v1/",

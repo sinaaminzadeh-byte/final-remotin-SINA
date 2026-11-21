@@ -1,0 +1,36 @@
+{
+  "file": "flywheel-effect-v01-2k.mp4",
+  "sha256": "8d90a892d47cb0b35bc3294a33a0463ec14be807014fef662c8c3390acaddac3",
+  "sizeBytes": 7170668,
+  "video": {
+    "codec": "h264",
+    "width": 1440,
+    "height": 2560,
+    "pix_fmt": "yuv420p",
+    "color_space": "bt709",
+    "avg_frame_rate": "60/1",
+    "r_frame_rate": "60/1",
+    "nb_frames": 2388,
+    "duration": 39.8
+  },
+  "audio": {
+    "codec": "aac",
+    "sample_rate": 48000,
+    "channels": 2,
+    "duration": 39.8,
+    "aacLagSamples": 0,
+    "active100msSpeechWindows": 362,
+    "minActiveWindowCorr": 0.9977,
+    "speechDropouts": 0
+  },
+  "native60fpsConsecutiveMotionDiffs": [
+    6.2862,
+    2.7868,
+    1.3441,
+    0.598
+  ],
+  "native60fpsVerified": true,
+  "humanListeningPerformed": false,
+  "status": "implemented-awaiting-user-review",
+  "native60fpsWindow": "frames 740..744 (wipe transition into StoredEnergyTruth)"
+}

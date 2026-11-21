@@ -48,6 +48,51 @@ export const sp = (f: number, start: number, duration = 26) =>
         config: { mass: 0.85, stiffness: 195, damping: 17 },
       });
 
+// Multi-mass springs for Instagram-grade physical contrast
+export const spHeavy = (f: number, start: number, duration = 34) =>
+  f <= start
+    ? 0
+    : spring({
+        frame: f - start,
+        fps: FPS,
+        durationInFrames: duration,
+        config: { mass: 1.9, stiffness: 112, damping: 18 },
+      });
+
+export const spSnap = (f: number, start: number, duration = 18) =>
+  f <= start
+    ? 0
+    : spring({
+        frame: f - start,
+        fps: FPS,
+        durationInFrames: duration,
+        config: { mass: 0.55, stiffness: 280, damping: 18 },
+      });
+
+export const spPop = (f: number, start: number, duration = 22) =>
+  f <= start
+    ? 0
+    : spring({
+        frame: f - start,
+        fps: FPS,
+        durationInFrames: duration,
+        config: { mass: 0.65, stiffness: 245, damping: 12.5 },
+      });
+
+export const impactShake = (
+  f: number,
+  impactFrame: number,
+  amp = 6,
+  dur = 14,
+) => {
+  const dt = f - impactFrame;
+  if (dt < 0 || dt > dur) return 0;
+  return Math.sin(dt * 1.45) * Math.exp(-dt * 0.28) * amp;
+};
+
+export const sheenSweep = (f: number, start: number, dur = 32) =>
+  f < start || f > start + dur ? -1 : (f - start) / dur;
+
 export const mix = (a: number, b: number, p: number) => a + (b - a) * p;
 export const tr = (x: number, y: number, s = 1, a = 0) =>
   `translate(${x} ${y}) rotate(${a}) scale(${s})`;
@@ -133,9 +178,13 @@ export function Head({
   start: number;
   blue?: boolean;
 }) {
-  const p = sp(f, start - 7, 25);
+  const p = spSnap(f, start - 6, 20);
+  const pop = spPop(f, start - 6, 22);
   return (
-    <g transform={tr(444, 186 + 14 * (1 - p), 0.97 + 0.03 * p)}>
+    <g
+      transform={tr(444, 186 + 18 * (1 - p), 0.92 + 0.08 * pop)}
+      opacity={clamp(p * 1.4)}
+    >
       <T
         s={s}
         x={0}

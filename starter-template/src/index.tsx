@@ -12,7 +12,7 @@ import {
   cancelRender,
 } from "remotion";
 import { A, C, design, words, meta, metric, e, Defs, textDir } from "./core";
-import { CraftDefs } from "./objects";
+import { CraftDefs, TechMatrixBackdrop } from "./objects";
 import { CreatorSignature } from "./creator-brand/CreatorSignature";
 import { prepareCoverAssets } from "./creator-brand/QuestionCover";
 import { Opening, openingEnd } from "./Opening";
@@ -116,6 +116,19 @@ function Picture({ f }: { f: number }) {
         src={staticFile("background.png")}
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%" }}
       />
+      {/* Style 04 (Minimal Tech Matrix) strictly underneath all foreground elements */}
+      <svg
+        width="1080"
+        height="1920"
+        viewBox="0 0 1080 1920"
+        style={{
+          position: "absolute",
+          inset: 0,
+          pointerEvents: "none",
+        }}
+      >
+        <TechMatrixBackdrop opacity={0.17} />
+      </svg>
       <div
         style={{
           position: "absolute",
