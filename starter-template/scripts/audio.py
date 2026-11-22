@@ -140,15 +140,7 @@ for i, b in enumerate(beats):
         }
     )
 
-# Gentle stepped wooden clicks for Kaizen staircase (beat 13, 3 subsequent steps)
-kaizen_f = next(b["frame"] for b in beats if b["anchorIndex"] == 44)
-for step_idx, frame_off in enumerate([12, 24, 36]):
-    tap = fx("tap", 200 + step_idx) * 0.42
-    si = round((kaizen_f + frame_off) * sr / fps)
-    hi = min(N, si + len(tap))
-    if si < N:
-        bus[si:hi] += tap[: hi - si, None] * np.array([0.92, 1.0])
-
+# Gentle stereo distribution across semantic beats; element-sfx.wav plays at 0.30 volume inside Remotion <Audio>
 sf.write(R / "public/element-sfx.wav", bus, sr, subtype="PCM_16")
 stem, _ = sf.read(R / "public/element-sfx.wav", always_2d=True)
 
@@ -205,7 +197,7 @@ r = {
     "sfxPostFaderRmsDbfs": db(stem * m["elementGain"]),
     "mixPeakDbfs": round(20 * math.log10(pk), 3),
     "eventsCount": len(ev),
-    "notes": "Original 1.0x MP3 decoded gaplessly at unity in both channels; no time stretch, no normalization, no slicing across scenes. Subtle synthesized paper/wood/switch/chime SFX at 0.30 gain.",
+    "notes": "Input narration preserved at its own natural speed (100% / voiceGain=1.0). Default tactile element SFX synthesized at 48 kHz and mixed at 30% (elementGain=0.30) via standard Remotion <Audio>.",
 }
 (R / "qa/mix.json").write_text(json.dumps(r, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(json.dumps(r, ensure_ascii=False, indent=2))

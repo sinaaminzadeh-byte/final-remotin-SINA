@@ -1,8 +1,15 @@
 # سیستم تولید موشن‌گرافیک ریل — `final-remotin-SINA` (تبار A قفل‌شده)
 
-این مخزن نسخهٔ **پاک، یکپارچه و قفل‌شدهٔ** خط تولید موشن‌گرافیک فارسی با **Remotion 4.0.543** بر مبنای مرجع تأییدشدهٔ **Warmup 04 · brand-v02** (`8f12c76 + 0f1d8c7`) و کیت برند **سینا امین‌زاده (`creator-brand-v1`)** است.
+این مخزن خط تولید استاندارد و قفل‌شدهٔ موشن‌گرافیک فارسی با **Remotion 4.0.543** بر مبنای مرجع طلایی **`references/flywheel-effect-v01/`** (ریشهٔ `Warmup 04 · brand-v02`) و کیت برند **سینا امین‌زاده (`creator-brand-v1`)** است.
 
-تمام اسناد متعارض تاریخی (V5، دستور دوپهلوی «کم‌جزئیات»، و اسکلت‌های منحرفِ تبار B مثل `Stage.tsx` و `paper.jpg`) از این مخزن حذف شده‌اند و یک **قالب شروع آماده (`starter-template/`)** به‌همراه **گیت سخت‌گیرانهٔ ضد-انحراف (`scripts/verify_project.py`)** جایگزین شده تا هر ریل جدید دقیقاً با همین هویت بصریِ گرم، لمسی و حرفه‌ای ولی با **کارگردانی و استعاره‌های اختصاصی موضوع خودش** تولید شود.
+تمام اسناد متعارض تاریخی حذف شده‌اند و یک **قالب شروع آماده (`starter-template/`)** به‌همراه **گیت ضد-انحراف (`scripts/verify_project.py`)** در مخزن قرار دارد تا هر ریل جدید دقیقاً با همان هویت بصری گرم، لمسی، زیرلایهٔ سبک ۴ (`TechMatrixBackdrop`)، فیزیک چندجرمه و `@remotion/paths` تولید شود.
+
+---
+
+## استانداردهای تولید فعلی
+- **رزولوشن و فریم‌ریت خروجی:** **`1080×1920` (Full HD 9:16، `scale: 1`)** با نرخ فریم ثابت **`60fps` CFR** (`H.264 / yuv420p / BT.709`) + پوستر مستقل `cover.png`.
+- **صدا و میکس استاندارد Remotion:** فایل صوتی نریشن دقیقاً با **سرعت طبیعی خودش** (بدون دستکاری سرعت) روی خط زمان قرار می‌گیرد. اسکریپت `scripts/audio.py` صدای پیش‌فرض المان‌ها (`public/element-sfx.wav`) را می‌سازد و تگ‌های استاندارد `<Audio>` داخل Remotion (`renderMedia`) هنگام رندر نهایی، نریشن را روی **۱۰۰٪ (`1.0`)** و صدای المان‌ها را روی **۳۰٪ (`0.30`)** میکس می‌کنند.
+- **پترن و حرکت:** زیرلایهٔ **سبک ۴ (`TechMatrixBackdrop`, opacity `0.17`, `multiply`)** زیر تمام لایه‌ها، فنرهای چندجرمه (`spHeavy`, `spSnap`, `spPop`)، مسیرهای `@remotion/paths`، لرزش قفل (`impactShake`)، درخشش نوری (`SheenOverlay`) و دوربین نرم استیج بدون حرکت‌دادن امضا و زیرنویس.
 
 ---
 
@@ -11,20 +18,21 @@
 | مسیر | نقش |
 |---|---|
 | `AGENTS.md` | نقطهٔ شروع و قوانین قفل‌شده برای هر عامل هوش مصنوعی |
-| `PROMPT_FOR_NEW_VIDEO.md` | پرامپت آماده (کپی کن و فقط ۳ ورودی slug، ویس و متن را پر کن) |
-| `rules/LOCKED_RULES.md` | قانون اساسی قفل‌شده (تبار A، ریزکنش‌های درون‌شیء، تداوم شیء و ممنوعیت‌ها) |
-| `rules/VISUAL_IDENTITY.md` | راهنمای کامل هویت بصری (کاور، امضا، رنگ، فونت Doran، متریال لمسی، کاراکتر) |
-| `rules/PRODUCTION_PLAYBOOK.md` | دستور کار ۶ مرحله‌ای از ترازبندی ویس تا QA نهایی |
+| `PROMPT_FOR_NEW_VIDEO.md` | پرامپت آماده و ساده (فقط لینک ویس و متن نریشن را پر کنید) |
+| `rules/LOCKED_RULES.md` | قانون اساسی قفل‌شده (تبار A، ریزکنش‌های درون‌شیء، تداوم شیء و صدا) |
+| `rules/VISUAL_IDENTITY.md` | راهنمای کامل هویت بصری (کاور، امضا، رنگ، فونت Doran، متریال لمسی، سبک ۴) |
+| `rules/PRODUCTION_PLAYBOOK.md` | دستور کار ۶ مرحله‌ای از ترازبندی ویس تا رندر و QA نهایی |
 | `rules/skills/semantic-motion/SKILL.md` | اسکیل v2.0: پوشش معنایی + چگالی ریزکنش + تداوم شیء (M006) |
 | `rules/KNOWN_MISTAKES.md` | دفتر خطاهای شناخته‌شده (`M001` تا `M022`) |
-| `rules/CURRENT_REFERENCE.json` | شناسنامه و هش فایل‌های مرجع قفل‌شده |
-| `brand-kit/creator-brand-v1/` | کیت رسمی کاور پرسشی، امضای ۲K، فونت Doran FaNum و بافت‌های رسمی |
+| `rules/CURRENT_REFERENCE.json` | شناسنامه و هش فایل‌های مرجع قفل‌شده (`flywheel-effect-v01-2k`) |
+| `brand-kit/creator-brand-v1/` | کیت رسمی کاور پرسشی، امضا، فونت Doran FaNum و بافت‌های رسمی |
 | `starter-template/` | پروژهٔ پایهٔ Remotion 4.0.543 با `core.tsx`, `objects.tsx`, `audit.tsx`, `ctc.py`, `audio.py`, `render.mjs` |
 | `scripts/new_project.py` | ساخت خودکار پروژهٔ جدید `projects/<slug>/` با نصب کامل کیت برند |
-| `scripts/verify_project.py` | گیت ضد-انحراف: بدون رعایت تبار A، کیت، `audit.tsx`، MP4 2K/60 و پیوستگی صوت پاس نمی‌شود |
+| `scripts/verify_project.py` | گیت ضد-انحراف: بررسی کیت، `TechMatrixBackdrop`، `audit.tsx`، MP4 `1080×1920 @ 60fps` و سلامت صدا |
 | `scripts/check_reference.py` | بررسی سلامت و یکپارچگی هش مرجع قفل‌شده و کیت برند |
-| `references/warmup-04-brand-v02/` | مرجع طلایی کامل (سورس والد `8f12c76` + `brand-v02` + ویدیوی ۲K + شیت‌های QA + ۷۲ ضرب) |
-| `projects/warmup-06-japanese-rules-v01/` | نمونهٔ کامل تولیدشده با همین سیستم («۴ قانون ژاپنی») |
+| `references/flywheel-effect-v01/` | **مرجع طلایی رسمی فعلی** (سورس کامل + ویدیوی مرجع + کاور + ۵۵ ضرب معنایی) |
+| `references/warmup-04-brand-v02/` | مرجع تاریخی ریشهٔ تبار A |
+| `projects/flywheel-effect-v01/` | پروژهٔ کامل تولیدشده و تأییدشده («اثر فلای‌ویل») |
 
 ---
 
@@ -38,16 +46,15 @@ python3 scripts/check_reference.py
 python3 scripts/new_project.py my-new-topic-v01
 
 # ۳. قرار دادن صوت در projects/my-new-topic-v01/public/narration.mp3 و متن در narration.txt
-# ۴. ترازبندی فارسی، طراحی صحنه‌ها و رندر
+# ۴. ترازبندی فارسی، طراحی صحنه‌ها و رندر استاندارد Remotion (1080x1920 @ 60fps)
 cd projects/my-new-topic-v01
 npm install
+python3 scripts/audio.py
 npm run typecheck
 npm run preview:frames
-python3 scripts/audio.py --mix /tmp/audio-master.wav
-ffmpeg -y -i /tmp/audio-master.wav -c:a aac -b:a 192k -ar 48000 -ac 2 /tmp/audio-master.m4a
 TMPDIR=/var/tmp/remotion-work npm run render
 
-# ۵. اجرای گیت سخت‌گیرانهٔ ضد-انحراف پیش از commit
+# ۵. بررسی MP4 نهایی و اجرای گیت ضد-انحراف پیش از تحویل
 cd ../..
 python3 scripts/verify_project.py projects/my-new-topic-v01
 ```

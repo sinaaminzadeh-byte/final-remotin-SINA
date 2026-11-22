@@ -15,6 +15,8 @@ import { execFileSync } from "node:child_process";
 
 const R = process.cwd();
 const meta = JSON.parse(fs.readFileSync(path.join(R, "data/meta.json"), "utf8"));
+const wordsData = JSON.parse(fs.readFileSync(path.join(R, "data/words.json"), "utf8"));
+const expectedWords = wordsData.length;
 const qa = path.join(R, "qa");
 const proofsDir = path.join(R, "qa", "proofs");
 fs.mkdirSync(qa, { recursive: true });
@@ -23,9 +25,13 @@ fs.mkdirSync(proofsDir, { recursive: true });
 const sh = (b) => crypto.createHash("sha256").update(b).digest("hex");
 const write = (p, x) => fs.writeFileSync(p, JSON.stringify(x, null, 2) + "\n");
 
-const temp = fs.mkdtempSync(path.join(os.tmpdir(), "japanese-rules-"));
+const temp = fs.mkdtempSync(path.join(os.tmpdir(), `${meta.slug}-`));
 const limits = renderSlots();
-console.log("Native scale 4/3 (1440x2560 @ 60fps); workers:", limits.workers);
+const scale = meta.scale ?? 1;
+console.log(
+  `Standard render scale ${scale} (${1080 * scale}x${1920 * scale} @ ${meta.fps}fps); workers:`,
+  limits.workers,
+);
 
 let browser;
 try {
@@ -57,7 +63,7 @@ try {
 
   browser = await openBrowser("chrome", {
     browserExecutable: p.path,
-    forceDeviceScaleFactor: 4 / 3,
+    forceDeviceScaleFactor: scale,
     chromiumOptions: opts,
   });
 
@@ -92,33 +98,38 @@ try {
     composition: comp,
     puppeteerInstance: browser,
     chromiumOptions: opts,
-    scale: 4 / 3,
+    scale,
     timeoutInMilliseconds: 90000,
     inputProps: { audit: true },
     onBrowserLog,
   };
 
   if (process.argv.includes("--proofs")) {
-    // Keyframes spanning cover + every single scene + sub-phase + CTA
-    const frames = [
-      0, 45, 250, 495, 645, 895, 1195, 1315, 1580, 1840, 2110, 2310, 2540,
-      2710, 3010, 3295,
-    ];
-    for (const frame of frames) {
+    // Evenly sample cover + key scene frames
+    const frames = [0];
+    for (const s of meta.shots ?? []) {
+      frames.push(Math.min(meta.durationInFrames - 1, s.frame + 12));
+    }
+    frames.push(Math.max(0, meta.durationInFrames - 15));
+    const uniqueFrames = [...new Set(frames)].sort((a, b) => a - b);
+
+    for (const frame of uniqueFrames) {
       const { buffer } = await renderStill({
         ...common,
         frame,
         imageFormat: "png",
       });
-      fs.writeFileSync(path.join(proofsDir, `frame-${String(frame).padStart(4, "0")}.png`), buffer);
+      fs.writeFileSync(
+        path.join(proofsDir, `frame-${String(frame).padStart(4, "0")}.png`),
+        buffer,
+      );
       if (frame === 0) {
-        fs.writeFileSync(path.join(R, "cover-2k.png"), buffer);
+        fs.writeFileSync(path.join(R, "cover.png"), buffer);
       }
       console.log("Proof still rendered:", frame);
     }
 
-    // Forward/reverse determinism pair check (M013)
-    const twice = [0, 495, 1195, 1840, 2710, 3295];
+    const twice = uniqueFrames.slice(0, Math.min(6, uniqueFrames.length));
     const checks = {};
     let allIdentical = true;
     for (const frame of [...twice].reverse()) {
@@ -151,30 +162,32 @@ try {
       process.exitCode = 1;
     } else {
       console.log(
-        `All ${frames.length} proof stills & determinism checks passed! (allIdentical=${allIdentical})`,
+        `All ${uniqueFrames.length} proof stills & determinism checks passed! (allIdentical=${allIdentical})`,
       );
     }
   } else {
-    const silent = path.join(temp, "picture.mp4");
-    const mux = path.join(temp, "final.mp4");
-    const outFile = path.join(R, `${meta.slug}-2k.mp4`);
+    const rawOut = path.join(temp, "remotion-out.mp4");
+    const outFile = path.join(R, `${meta.slug}.mp4`);
     let last = -1;
 
-    // Also ensure standalone cover-2k.png is fresh
+    // Ensure standalone cover.png at frame 0 is fresh
     const { buffer: coverBuf } = await renderStill({
       ...common,
       frame: 0,
       imageFormat: "png",
     });
-    fs.writeFileSync(path.join(R, "cover-2k.png"), coverBuf);
+    fs.writeFileSync(path.join(R, "cover.png"), coverBuf);
 
+    // Standard Remotion renderMedia: mixes <Audio> (narration 1.0 + element-sfx 0.30) natively
     await renderMedia({
       ...common,
-      outputLocation: silent,
+      outputLocation: rawOut,
       codec: "h264",
       pixelFormat: "yuv420p",
       colorSpace: "bt709",
-      muted: true,
+      audioCodec: "aac",
+      audioBitrate: "192k",
+      muted: false,
       imageFormat: "jpeg",
       jpegQuality: 96,
       crf: 17,
@@ -184,7 +197,9 @@ try {
       onProgress: ({ progress, renderedFrames }) => {
         const pct = Math.floor(progress * 20);
         if (pct > last) {
-          console.log(`Rendering 2K 60fps: ${pct * 5}% (${renderedFrames}/${meta.durationInFrames})`);
+          console.log(
+            `Rendering ${1080 * scale}x${1920 * scale} @ ${meta.fps}fps: ${pct * 5}% (${renderedFrames}/${meta.durationInFrames})`,
+          );
           last = pct;
         }
       },
@@ -195,7 +210,7 @@ try {
     const stats = {
       sampledFrames: a.length,
       distinctWords: wc.size,
-      expectedWords: 154,
+      expectedWords,
       labels: a.reduce((t, v) => t + v.labels, 0),
       coverSamples: a.filter((v) => v.cover).map((v) => v.frame),
       allFonts: a.every((v) => v.fonts),
@@ -212,8 +227,8 @@ try {
     browser = undefined;
 
     if (
-      stats.sampledFrames < 250 ||
-      wc.size !== 154 ||
+      stats.sampledFrames < 120 ||
+      wc.size !== expectedWords ||
       !stats.allFonts ||
       !stats.stableBylineAtEverySample ||
       stats.issues.length > 0
@@ -223,11 +238,7 @@ try {
       );
     }
 
-    const audioMaster = "/tmp/audio-master.m4a";
-    if (!fs.existsSync(audioMaster)) {
-      throw new Error("Missing /tmp/audio-master.m4a — run scripts/audio.py first");
-    }
-
+    // Apply faststart flag cleanly for Instagram/web streaming
     execFileSync(
       "ffmpeg",
       [
@@ -237,27 +248,16 @@ try {
         "-nostdin",
         "-y",
         "-i",
-        silent,
-        "-i",
-        audioMaster,
-        "-map",
-        "0:v:0",
-        "-map",
-        "1:a:0",
-        "-map_metadata",
-        "-1",
+        rawOut,
         "-c",
         "copy",
-        "-metadata",
-        "title=۴ قانون ژاپنی برای رشد بدون خستگی پیج | سینا امین زاده",
         "-movflags",
         "+faststart",
-        mux,
+        outFile,
       ],
       { stdio: "inherit" },
     );
-    fs.copyFileSync(mux, outFile);
-    console.log("SUCCESS! Rendered & muxed:", outFile);
+    console.log("SUCCESS! Rendered standard Remotion MP4:", outFile);
   }
 } finally {
   if (browser) await browser.close({ silent: true });

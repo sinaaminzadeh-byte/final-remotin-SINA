@@ -45,20 +45,25 @@
       1920
     ],
     "nativeScale": [
-      4,
-      3
+      1,
+      1
     ],
     "deliveryCanvas": [
-      1440,
-      2560
+      1080,
+      1920
     ],
     "fps": 60,
     "frameRateMode": "CFR",
     "video": "H.264 yuv420p BT.709",
-    "audio": "AAC stereo 48000 Hz",
+    "audio": "AAC stereo 48000 Hz (standard Remotion <Audio> mixing inside renderMedia)",
     "voiceGain": 1.0,
     "elementSfxGain": 0.3,
     "preserveInputAudioSpeed": true,
+    "optionalReports": [
+      "qa/mistake-review.json",
+      "qa/commit-review.json",
+      "identity-map.md"
+    ],
     "microActionTargetPerSecond": [
       1.0,
       1.4

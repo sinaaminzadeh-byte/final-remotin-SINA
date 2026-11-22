@@ -21,24 +21,22 @@ python3 scripts/new_project.py <slug>
    - برای هر فعل مهم یک ریزکنش قابل‌مشاهده درون خود شیء (`before / action / after` منحصربه‌فرد).
    - هدف چگالی: **۱٫۰ تا ۱٫۴ ضرب در ثانیه**، و **صفر فاصلهٔ بی‌توضیح بالای ۲٫۵ ثانیه**.
    - ثبت `continuity` برای پیوستگی اشیا میان صحنه‌های متوالی (M006).
-4. نوشتن `identity-map.md` برای نگاشت هر عنصر جدید به خانوادهٔ متریال مرجع.
 
 ## مرحله ۴ — پیاده‌سازی صحنه‌ها و صدا
 1. طراحی `src/Opening.tsx` با `QuestionCover`، سؤال دوخطی و شیء قهرمان صحنهٔ اول؛ خروج از جلد دقیقاً روی اولین واژه پس از عبارت افتتاحیه (`openingEnd = A(...)`).
 2. طراحی صحنه‌ها در فایل‌های خوانا (`src/scenes1.tsx`, `src/scenes2.tsx`, ...) با اشیای قهرمان بزرگ، چندلایه و لمسی (`#lift`، `#heavyLift`، `#brass`، `#wood`، `#ivory`، `#weave`، `#draft`، `#hatch`). از کپی کارت‌های یکسان یا آیکن‌های تخت پرهیز کن.
-3. اجرای `scripts/audio.py --mix /tmp/audio-master.wav` و تبدیل به `/tmp/audio-master.m4a` (AAC Stereo 48kHz، نریشن `1.0` پیوسته + SFX ملایم `0.30`، بدون clipping).
+3. اجرای `python3 scripts/audio.py` برای تولید صدای پیش‌فرض المان‌ها (`public/element-sfx.wav`) و ثبت `qa/mix.json` (میکس نهایی با روش استاندارد Remotion `<Audio>` با نریشن `1.0` و SFX `0.30` انجام می‌شود).
 
-## مرحله ۵ — پیش‌نمایش، بازبینی بصری و رندر بومی ۲K
+## مرحله ۵ — پیش‌نمایش، بازبینی بصری و رندر استاندارد `1080×1920 @ 60fps`
 1. اجرای `npm run typecheck` (صفر خطای TypeScript).
-2. اجرای `npm run preview:frames` (تولید ۱۶ فریم کلیدی ۲K + `cover-2k.png` + تست determinism رفت‌وبرگشت).
+2. اجرای `npm run preview:frames` (تولید فریم‌های کلیدی `1080×1920` + `cover.png` + تست determinism رفت‌وبرگشت).
 3. ساخت و **دیدن مستقیم** `qa/proof-sheet.jpg` و بررسی هرگونه برخورد متن، تنگی فضا، باگ RTL یا کوچکی شیء قهرمان؛ اصلاح قبل از رندر کامل.
-4. اجرای `TMPDIR=/var/tmp/remotion-work npm run render` برای رندر بومی `1440×2560 @ 60fps` و mux پیوستهٔ AAC، با عبور کامل از `audit.tsx` (`qa/type-and-layout.json`).
+4. اجرای `TMPDIR=/var/tmp/remotion-work npm run render` برای رندر مستقیم استاندارد Remotion (`1080×1920 @ 60fps` با صدای میکس‌شدهٔ نریشن ۱۰۰٪ + المان ۳۰٪) و عبور کامل از `audit.tsx` (`qa/type-and-layout.json`).
 
 ## مرحله ۶ — QA واقعی روی MP4 نهایی و اجرای گیت ضد-انحراف
 1. استخراج فریم‌های واقعی از خود MP4 نهایی به `qa/encoded-review.jpg` و مشاهدهٔ آن‌ها.
 2. تولید `qa/verification.json` شامل بررسی `ffprobe`، decode کامل بدون خطا، تست فریم‌های متوالی ۶۰fps در پنجرهٔ حرکت فعال و بررسی پیوستگی صوت در پنجره‌های ۱۰۰ms (`speechDropouts: 0`).
-3. ثبت `qa/mistake-review.json` و `qa/commit-review.json` با هش واقعی `rules/KNOWN_MISTAKES.md`.
-4. اجرای گیت اجباری:
+3. اجرای گیت اجباری (فایل‌های گزارش `mistake-review.json`، `commit-review.json` و `identity-map.md` اختیاری هستند):
    ```bash
    python3 scripts/verify_project.py projects/<slug>
    ```

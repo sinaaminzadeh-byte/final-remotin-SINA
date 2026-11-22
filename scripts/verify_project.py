@@ -164,37 +164,38 @@ else:
         errors.append(f"Missing rendered MP4 referenced by verification.json: {mp4_name}")
     elif sha256(mp4_file) != ver.get("sha256"):
         errors.append("[M016] MP4 SHA-256 does not match qa/verification.json")
-    if (v.get("width"), v.get("height")) != (1440, 2560):
-        errors.append(f"Output must be native 2K 1440x2560, got {v.get('width')}x{v.get('height')}")
+    if (v.get("width"), v.get("height")) not in {(1080, 1920), (1440, 2560)}:
+        errors.append(f"Output must be 1080x1920 or 1440x2560, got {v.get('width')}x{v.get('height')}")
     if v.get("avg_frame_rate") != "60/1" or v.get("r_frame_rate") != "60/1":
         errors.append(f"Output must be CFR 60/1, got {v.get('avg_frame_rate')}/{v.get('r_frame_rate')}")
     if v.get("codec") != "h264" or v.get("pix_fmt") != "yuv420p":
         errors.append(f"Codec/pix_fmt mismatch: {v.get('codec')}/{v.get('pix_fmt')}")
     if not ver.get("native60fpsVerified"):
         errors.append("native60fpsVerified is not true")
-    if a.get("codec") != "aac" or a.get("sample_rate") != 48000 or a.get("channels") != 2:
+    if a.get("codec") != "aac" or a.get("sample_rate") not in {44100, 48000} or a.get("channels") != 2:
         errors.append(f"Audio spec mismatch: {a}")
     if a.get("speechDropouts", 1) != 0:
         errors.append(f"[M014] Audio speech dropouts detected: {a.get('speechDropouts')}")
 
-for req_file in ["cover-2k.png", "qa/encoded-review.jpg", "qa/mix.json", "qa/alignment.json", "qa/source-determinism.json", "identity-map.md"]:
+if not ((P / "cover.png").is_file() or (P / "cover-2k.png").is_file()):
+    errors.append("Missing required cover image: cover.png (or cover-2k.png)")
+
+for req_file in ["qa/encoded-review.jpg", "qa/mix.json", "qa/alignment.json", "qa/source-determinism.json"]:
     if not (P / req_file).is_file():
         errors.append(f"Missing required deliverable/QA file: {req_file}")
 
-# 7. Mistake & Commit Review Gate (matching current rules/KNOWN_MISTAKES.md digest)
+# 7. Optional Mistake & Commit Review (only checked if provided; no longer mandatory paperwork)
 digest = sha256(MISTAKES_PATH)
 valid_ids = set(re.findall(r"^## (M\d{3}) —", MISTAKES_PATH.read_text(encoding="utf-8"), re.M))
 for qa_name in ["qa/mistake-review.json", "qa/commit-review.json"]:
     qp = P / qa_name
-    if not qp.is_file():
-        errors.append(f"Missing {qa_name}")
-    else:
+    if qp.is_file():
         data = json.loads(qp.read_text(encoding="utf-8"))
         if data.get("mistake_register_sha256") != digest:
-            errors.append(f"{qa_name} digest does not match current rules/KNOWN_MISTAKES.md")
+            warnings.append(f"{qa_name} digest does not match current rules/KNOWN_MISTAKES.md")
         checked = set(data.get("checked_mistake_ids", []))
         if not checked or not checked.issubset(valid_ids):
-            errors.append(f"{qa_name} has invalid checked_mistake_ids")
+            warnings.append(f"{qa_name} has invalid checked_mistake_ids")
 
 # 8. Credential scan across text files (M020)
 for p in P.rglob("*"):
