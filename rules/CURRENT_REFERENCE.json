@@ -58,7 +58,7 @@
     "audio": "AAC stereo 48000 Hz",
     "voiceGain": 1.0,
     "elementSfxGain": 0.3,
-    "noSecondSpeedup": true,
+    "preserveInputAudioSpeed": true,
     "microActionTargetPerSecond": [
       1.0,
       1.4

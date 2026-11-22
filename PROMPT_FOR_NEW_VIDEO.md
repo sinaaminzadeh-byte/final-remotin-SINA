@@ -1,30 +1,22 @@
-# پرامپت آماده برای تولید هر ریل جدید (کپی کن و فقط ۳ ورودی پایین را پر کن)
+# پرامپت آماده برای تولید هر ریل جدید (فقط ۲ ورودی + لینک مخزن)
 
-این پرامپت مخصوص کار با مخزن `sinaaminzadeh-byte/final-remotin-SINA` طراحی شده است. هر وقت یک ویس و متن نریشن تازه داری، همین متن را به ایجنت بده و فقط ۳ مورد انتهای آن را پر کن.
+این پرامپت مخصوص کار با مخزن `https://github.com/sinaaminzadeh-byte/final-remotin-SINA` است. هر وقت ویس و متن جدیدی دارید، فقط لینک فایل صوتی و متن نریشن را جایگزین کنید.
 
 ---
 
 ```text
-یک ویدیوی موشن‌گرافیک فارسی جدید با موتور Remotion در مخزن `sinaaminzadeh-byte/final-remotin-SINA` بساز.
+یک ویدیوی موشن‌گرافیک فارسی جدید با موتور Remotion بر اساس مخزن زیر بساز:
+https://github.com/sinaaminzadeh-byte/final-remotin-SINA
 
-قوانین و مرجع قفل‌شده‌اند — قبل از هر کار دقیقاً به این ترتیب عمل کن:
-1. فایل‌های `AGENTS.md`، `rules/LOCKED_RULES.md`، `rules/CURRENT_REFERENCE.json`، `rules/VISUAL_IDENTITY.md`، `rules/PRODUCTION_PLAYBOOK.md`، `rules/skills/semantic-motion/SKILL.md` و `rules/KNOWN_MISTAKES.md` را بخوان.
-2. مرجع طلایی `references/flywheel-effect-v01/` را بررسی کن: هم فریم‌های `qa/encoded-review.jpg`، `cover-2k.png` و ویدیوی `flywheel-effect-v01-2k.mp4`، و هم کد صحنه‌های مرجع در `src/` (`core.tsx`, `objects.tsx`, `Opening.tsx`, `scenes1.tsx`, `scenes2.tsx`, `index.tsx`) و `semantic-beats.json` را ببین تا دقیقاً همان سطح بافت لمسی، پترن زیرلایهٔ سبک ۴ (`TechMatrixBackdrop`)، فیزیک چندجرمه، `@remotion/paths`، ریزکنش‌های درون‌شیء و تداوم اشیا بین صحنه‌ها را اجرا کنی.
-3. پروژهٔ جدید را فقط با دستور `python3 scripts/new_project.py <slug>` بساز تا کیت `creator-brand-v1`، فونت Doran FaNum، `QuestionCover`، `CreatorSignature`، `background.png`، `pixel-mark.png`، موتور تایپ `T()` و `audit.tsx` دقیقاً مطابق تبار A نصب شوند. هیچ‌چیز را از صفر یا با `paper.jpg` و آیکن‌های تخت بازنویسی نکن.
-4. فایل صوتی ورودی را با `scripts/ctc.py` روی متن دقیق زیر ترازبندی کن (اگر صوت از قبل سرعت‌داده‌شده، دوباره تندش نکن). یک ساعت مشترک برای کپشن واژه‌به‌واژه، ریزکنش‌های تصویری و SFX (با گین ۰٫۳۰ در برابر نریشن ۱٫۰) بساز.
-5. کارگردانی و استوری‌بورد مخصوص همین موضوع را طراحی کن:
-   - کاور پرسشی دوخطی از فریم صفر (`QuestionCover`) با شیء قهرمان صحنهٔ اول همین موضوع + خروجی مستقل `cover-2k.png` (بدون افزودن زمان به نریشن).
-   - امضای ثابت `CreatorSignature` یک‌بار در ریشه از فریم صفر تا آخر (بدون کادر و بدون شمارهٔ پرونده).
-   - چگالی ریزکنش بالا در سطح Warmup 04: هر فعل گفتار باید وضعیت درونیِ خود شیء را تغییر دهد (هدف ۱٫۰ تا ۱٫۴ ریزکنش در ثانیه، صفر مکث بی‌دلیل بالای ۲٫۵ ثانیه) و بین صحنه‌های متوالی تداوم شیء (M006) برقرار باشد.
-   - اشیای قهرمان چندلایه، تمیز و ضدپلگی با متریال گرم برند (`brass`, `wood`, `ivory`, `paper`, `#lift`, `#heavyLift`, `weave`, `draft`, `hatch`)؛ کاراکتر پیکسلی `Person()` فقط در نقش روایی واقعی.
-6. ابتدا `npm run typecheck` و `npm run preview:frames` را اجرا کن، شیت `qa/proof-sheet.jpg` را ببین و هر نقص بصری یا برخورد متن را قبل از رندر نهایی اصلاح کن.
-7. سپس `npm run render` را برای خروجی بومی 2K (`1440×2560`, CFR `60fps`, `H.264/yuv420p/BT.709`, AAC Stereo 48kHz پیوسته) اجرا کن، فریم‌های واقعی استخراج‌شده از MP4 (`qa/encoded-review.jpg`) را ببین، `qa/mistake-review.json` و `qa/commit-review.json` را تکمیل کن، و در پایان حتماً گیت ضد-انحراف را اجرا و پاس کن:
-   `python3 scripts/verify_project.py projects/<slug>`
-8. هرگز هیچ توکن یا رمز عبوری در فایل‌ها، کامیت‌ها یا URLها ذخیره نکن. وضعیت شنیدار انسانی را صادقانه گزارش کن.
+قوانین و ساختار مخزن قفل‌شده‌اند — دقیقاً مطابق آن‌ها عمل کن:
+1. فایل‌های `AGENTS.md`، `rules/LOCKED_RULES.md`، `rules/CURRENT_REFERENCE.json`، `rules/VISUAL_IDENTITY.md`، `rules/PRODUCTION_PLAYBOOK.md`، `rules/skills/semantic-motion/SKILL.md` و `rules/KNOWN_MISTAKES.md` را بخوان و مرجع طلایی `references/flywheel-effect-v01/` (ویدیو، کاور، سورس `src/` و `semantic-beats.json`) را بررسی کن.
+2. بر اساس موضوع متن، یک نام انگلیسی مناسب (`<slug>-v01`) بساز و پروژهٔ جدید را فقط با `python3 scripts/new_project.py <slug>-v01` ایجاد کن.
+3. فایل صوتی ورودی را دقیقاً با سرعت اصلی خودش (بدون هیچ تغییری در سرعت صوت) با `scripts/ctc.py` روی متن دقیق زیر ترازبندی کن. صدای پیش‌فرض المان‌ها (`SFX`) با `scripts/audio.py` ساخته شده و هنگام رندر روی ۳۰٪ (`0.30`) در برابر نریشن ۱۰۰٪ (`1.0`) میکس می‌شود.
+4. کارگردانی کامل تبار A را اجرا کن: کاور پرسشی از فریم ۰ (`QuestionCover` + `cover-2k.png`)، امضای ثابت ریشه (`CreatorSignature`)، زیرلایهٔ سبک ۴ (`TechMatrixBackdrop` در پایین‌ترین لایه)، اشیای قهرمان لمسی، فیزیک چندجرمه، `@remotion/paths`، چگالی ریزکنش ۱٫۰ تا ۱٫۴ در ثانیه و تداوم اشیا بین صحنه‌ها (`continuity`).
+5. پس از `npm run typecheck` و `npm run preview:frames` (بازبینی `qa/proof-sheet.jpg`)، رندر نهایی `npm run render` (۲K @ 60fps)، بازبینی `qa/encoded-review.jpg`، تکمیل `qa/mistake-review.json` و `qa/commit-review.json` را انجام بده و حتماً `python3 scripts/verify_project.py projects/<slug>-v01` را با نتیجهٔ `PASS` پاس کن.
 
-ورودی‌های این سفارش:
-۱. شناسهٔ پروژه (slug): projects/<نام-موضوع-v01>/
-۲. فایل صوتی نریشن (لینک مستقیم یا مسیر فایل) و وضعیت سرعت (مثلاً «۱٫۰× بدون تغییر» یا «از قبل ۱٫۲×»): ...
-۳. متن دقیق کلمه‌به‌کلمهٔ نریشن (شامل جملهٔ پایانی/CTA):
-«...»
+ورودی‌های این ویدیو:
+- لینک صدای نریشن: <URL فایل صوتی>
+- متن دقیق نریشن (با جملهٔ پایانی/CTA):
+«<متن کامل نریشن>»
 ```
