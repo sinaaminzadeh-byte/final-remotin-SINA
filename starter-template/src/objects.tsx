@@ -1,11 +1,16 @@
 import React, { useId } from "react";
 import { C, T, Tick, Screw, range, tr, clamp, mix } from "./core";
 
-// Style 04 (Minimal Tech Matrix) — always placed strictly underneath all foreground layers
+// Style 04 (Minimal Tech Matrix) — ONLY for QuestionCover.backdrop (Opening.tsx) and root data-backdrop-svg (index.tsx).
+// NEVER render TechMatrixBackdrop inside scenes*.tsx or inside data-stage-svg.
 export function TechMatrixBackdrop({ opacity = 0.17 }: { opacity?: number }) {
   const id = useId();
   return (
-    <g opacity={opacity} style={{ mixBlendMode: "multiply" }}>
+    <g
+      data-tech-backdrop="true"
+      opacity={Math.min(0.22, Math.max(0.12, opacity))}
+      style={{ mixBlendMode: "multiply" }}
+    >
       <defs>
         <pattern
           id={id}

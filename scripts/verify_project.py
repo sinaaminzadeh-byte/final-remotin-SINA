@@ -105,6 +105,18 @@ if tactile_defs < 16:
 if re.search(r"[\u0600-\u06ff]\s*[<>]\s*[\u0600-\u06ff]", all_src):
     errors.append("[RTL Clarity] Avoid '<' or '>' between Persian words (mirrors ambiguously in RTL); use Persian phrasing or directional arrow")
 
+# Check TechMatrixBackdrop placement: strictly in Opening.tsx (backdrop prop) and index.tsx (underlay SVG), never in scenes*.tsx
+opening_src = (P / "src/Opening.tsx").read_text(encoding="utf-8", errors="ignore") if (P / "src/Opening.tsx").is_file() else ""
+index_src = (P / "src/index.tsx").read_text(encoding="utf-8", errors="ignore") if (P / "src/index.tsx").is_file() else ""
+if "TechMatrixBackdrop" not in opening_src or "backdrop=" not in opening_src:
+    errors.append("[M024] Opening.tsx must pass backdrop={<TechMatrixBackdrop ... />} to QuestionCover")
+if "TechMatrixBackdrop" not in index_src:
+    errors.append("[M024] index.tsx must render <TechMatrixBackdrop /> strictly underneath stage SVG")
+for sf in (P / "src").glob("scenes*.tsx"):
+    stxt = sf.read_text(encoding="utf-8", errors="ignore")
+    if "TechMatrixBackdrop" in stxt:
+        errors.append(f"[M024] {sf.name} must NOT render TechMatrixBackdrop inside scene stage")
+
 # 4. Semantic beats & micro-action density check (M004 / M022)
 beats_path = P / "semantic-beats.json"
 if not beats_path.is_file():
@@ -112,6 +124,15 @@ if not beats_path.is_file():
 else:
     beats = json.loads(beats_path.read_text(encoding="utf-8"))
     meta = json.loads((P / "data/meta.json").read_text(encoding="utf-8"))
+    shots = meta.get("shots") or []
+    if not shots:
+        errors.append("[M024] data/meta.json must define shots[]")
+    else:
+        shot_frames = [int(s["frame"]) for s in shots]
+        if shot_frames != sorted(shot_frames) or len(set(shot_frames)) != len(shot_frames):
+            errors.append("[M024] meta.shots frames must be strictly increasing")
+        if "openingEndFrame" in meta and abs(shot_frames[0] - int(meta["openingEndFrame"])) > 2:
+            errors.append(f"[M024] Gap between openingEndFrame ({meta['openingEndFrame']}) and shots[0].frame ({shot_frames[0]})")
     dur = float(meta["durationSeconds"])
     density = len(beats) / max(dur, 1.0)
     max_gap = max((float(b["durationSec"]) for b in beats), default=99.0)
@@ -131,7 +152,7 @@ else:
     elif density < 0.95:
         warnings.append(f"[M022 Advisory] Beat density is {density:.2f}/s; Warmup 04 gold target is 1.0-1.4 micro-actions/s")
 
-# 5. Type & Layout Audit (qa/type-and-layout.json)
+# 5. Type & Layout Audit (qa/type-and-layout.json & qa/proof-audit.json)
 tl_path = P / "qa/type-and-layout.json"
 if not tl_path.is_file():
     errors.append("[M017] Missing qa/type-and-layout.json")
@@ -147,8 +168,16 @@ else:
         errors.append("Not all 3 Doran FaNum weights verified loaded in qa/type-and-layout.json")
     if not tl.get("stableBylineAtEverySample"):
         errors.append("CreatorSignature moved or missing in qa/type-and-layout.json")
+    if tl.get("emptyStageFrames"):
+        errors.append(f"[M024] Empty/background-only stage frames detected: {tl['emptyStageFrames']}")
     if tl.get("issues"):
         errors.append(f"Non-empty layout/ink audit issues: {len(tl['issues'])}")
+
+pa_path = P / "qa/proof-audit.json"
+if pa_path.is_file():
+    pa = json.loads(pa_path.read_text(encoding="utf-8"))
+    if pa.get("issues"):
+        errors.append(f"[M023] Non-empty proof-audit issues: {len(pa['issues'])}")
 
 # 6. Encoded MP4 & standalone cover & review sheet
 ver_path = P / "qa/verification.json"
@@ -180,7 +209,7 @@ else:
 if not ((P / "cover.png").is_file() or (P / "cover-2k.png").is_file()):
     errors.append("Missing required cover image: cover.png (or cover-2k.png)")
 
-for req_file in ["qa/encoded-review.jpg", "qa/mix.json", "qa/alignment.json", "qa/source-determinism.json"]:
+for req_file in ["qa/proof-sheet.jpg", "qa/encoded-review.jpg", "qa/mix.json", "qa/alignment.json", "qa/source-determinism.json"]:
     if not (P / req_file).is_file():
         errors.append(f"Missing required deliverable/QA file: {req_file}")
 

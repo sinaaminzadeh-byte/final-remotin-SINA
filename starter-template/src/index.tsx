@@ -118,6 +118,7 @@ function Picture({ f }: { f: number }) {
       />
       {/* Style 04 (Minimal Tech Matrix) strictly underneath all foreground elements */}
       <svg
+        data-backdrop-svg="true"
         width="1080"
         height="1920"
         viewBox="0 0 1080 1920"
@@ -141,6 +142,7 @@ function Picture({ f }: { f: number }) {
         }}
       />
       <svg
+        data-stage-svg="true"
         xmlns="http://www.w3.org/2000/svg"
         width={x1 - x0}
         height={y1 - y0}
@@ -208,7 +210,13 @@ function Picture({ f }: { f: number }) {
   );
 }
 
-export function BrandedReelFilm({ audit = false }: { audit?: boolean }) {
+export function BrandedReelFilm({
+  audit = false,
+  auditAll = false,
+}: {
+  audit?: boolean;
+  auditAll?: boolean;
+}) {
   const f = useCurrentFrame();
   const [ready, setReady] = useState(false);
   const [handle] = useState(() =>
@@ -250,7 +258,7 @@ export function BrandedReelFilm({ audit = false }: { audit?: boolean }) {
             <Picture f={f} />
           )}
           <CreatorSignature />
-          {audit && <Audit f={f} />}
+          {audit && <Audit f={f} auditAll={auditAll} />}
         </>
       )}
       <Audio src={staticFile("narration.mp3")} volume={meta.voiceGain} />
@@ -264,7 +272,7 @@ function Root() {
     <Composition
       id={meta.compositionId}
       component={BrandedReelFilm}
-      defaultProps={{ audit: false }}
+      defaultProps={{ audit: false, auditAll: false }}
       durationInFrames={meta.durationInFrames}
       fps={meta.fps}
       width={meta.width}

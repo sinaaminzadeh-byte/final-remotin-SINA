@@ -7,8 +7,8 @@
 1. `rules/LOCKED_RULES.md` (قانون اساسی قفل‌شده — تبار A و ممنوعیت‌های قطعی)
 2. `rules/CURRENT_REFERENCE.json` (مسیر و هش مرجع طلایی `flywheel-effect-v01` + سورس کامل + کیت برند)
 3. `rules/VISUAL_IDENTITY.md` (متریال، پالت، پترن زیرلایهٔ سبک ۴، تایپ، کاور، امضا و کاراکتر)
-4. `rules/skills/semantic-motion/SKILL.md` (نسخهٔ ۲.۰: پوشش معنایی، چگالی ریزکنش‌های درون‌شیء و تداوم شیء بین صحنه‌ها)
-5. `rules/KNOWN_MISTAKES.md` (دفتر خطاهای `M001` تا `M022` — برای جلوگیری از تکرار خطاها)
+4. `rules/skills/semantic-motion/SKILL.md` (نسخهٔ ۲.۱: پوشش معنایی، زون‌بندی ضدهم‌پوشانی استیج، صفر فریم خالی، چگالی ریزکنش‌های درون‌شیء و تداوم شیء بین صحنه‌ها)
+5. `rules/KNOWN_MISTAKES.md` (دفتر خطاهای `M001` تا `M024` — برای جلوگیری از تکرار خطاها)
 6. **بازبینی مرجع واقعی (هر دو پوشه الزامی‌اند):**
    - ویدیو و فریم‌های `references/flywheel-effect-v01/flywheel-effect-v01-2k.mp4`، `cover-2k.png` و `qa/encoded-review.jpg`
    - **سورس کامل مرجع طلایی** در `references/flywheel-effect-v01/src/` (`core.tsx`, `objects.tsx`, `Opening.tsx`, `scenes1.tsx`, `scenes2.tsx`, `index.tsx`) و `semantic-beats.json` (۵۵ ضرب معنایی، ۱٫۳۸ ضرب/ثانیه) تا سطح پترن زیرلایه، فیزیک چندجرمه، `@remotion/paths`، سایه‌پردازی و تداوم شیء را دقیقاً ببینی. (مرجع تاریخی ریشه: `references/warmup-04-brand-v02/`).
@@ -25,7 +25,8 @@
   - `CreatorSignature` دقیقاً **یک بار در ریشه** (`AbsoluteFill`) بیرون از دوربین و ترنزیشن‌ها، ثابت از فریم ۰ تا آخرین فریم (`bounds1080: [351, 276, 729, 358.5]`). هیچ شمارهٔ «پرونده»، کادر دور نام یا امضای دومی اضافه نشود.
 - **تایپوگرافی و قاب:**
   - فقط **Doran FaNum** (`900` تیتر/اعداد شاخص، `800` برچسب/CTA، `700` کپشن و متن فرعی)؛ فقط اعداد فارسی؛ بدون کشش افقی؛ فقط از تابع `T()` با اندازه‌گیری `actualBoundingBox` و `audit.tsx`.
-  - پس‌زمینه فقط `background.png` کیت + **پترن زیرلایهٔ سبک ۴ (`TechMatrixBackdrop` با شفافیت `0.17` و مد `multiply` دقیقاً زیر تمام لایه‌ها و حتی زیر خورشید کاور)** + `pixel-mark.png` در `(922, 1278)`. استفاده از `paper.jpg` ممنوع است.
+  - پس‌زمینه فقط `background.png` کیت + **پترن زیرلایهٔ سبک ۴ (`TechMatrixBackdrop` با شفافیت `0.17` و مد `multiply` فقط در `Opening.tsx` (`backdrop`) و لایهٔ `data-backdrop-svg` در `index.tsx`؛ هرگز داخل `scenes*.tsx` نباشد)** + `pixel-mark.png` در `(922, 1278)`. استفاده از `paper.jpg` ممنوع است.
+  - **زون‌بندی ضدهم‌پوشانی و صفر فریم خالی (M023 / M024):** داخل استیج `888×1024` فقط محدودهٔ `x = 40..848, y = 265..925` برای اشیا و کارت‌هاست (`y < 260` متعلق به `Head` و `CreatorSignature` است). فازهای مختلف یک صحنه نباید روی متن یا شیء قبلی بیفتند، `openingEndFrame` باید با `shots[0].frame` تراز باشد، و ریشهٔ صحنه از فریم شروع تا پایان نباید با `opacity={0}` خالی بماند.
 - **کارگردانی در سطح مرجع طلایی (`flywheel-effect-v01` / ریشهٔ Warmup 04):**
   - **ممنوعیت آیکن تخت و کارت تکراری (M002/M003/M021):** هر صحنه با اشیای قهرمانِ چندلایه، ضدپلگی و لمسی (`#lift`, `#heavyLift`, `brass`, `wood`, `ivory`, `weave`, `draft`, `hatch`) ساخته می‌شود.
   - **ارتقای حرکتی Remotion:** استفاده از فنرهای چندجرمه (`spHeavy`, `spSnap`, `spPop`)، رسم پویا با `@remotion/paths` (`evolvePath`, `getPointAtLength`)، ضربهٔ میکرو (`impactShake`) هنگام قفل و مهر، موج نوری (`SheenOverlay`) روی دکمهٔ CTA و پلاک‌ها، و دوربین نرم استیج بدون تکان‌دادن `CreatorSignature` و زیرنویس‌ها.

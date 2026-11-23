@@ -182,8 +182,9 @@ export function Head({
   const pop = spPop(f, start - 6, 22);
   return (
     <g
-      transform={tr(444, 186 + 18 * (1 - p), 0.92 + 0.08 * pop)}
-      opacity={clamp(p * 1.4)}
+      data-head="true"
+      transform={tr(444, 186 + 14 * (1 - p), 0.94 + 0.06 * pop)}
+      opacity={clamp(0.45 + 0.55 * p)}
     >
       <T
         s={s}

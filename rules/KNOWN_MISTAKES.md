@@ -210,3 +210,18 @@
 - جلوگیری / اقدام اصلاحی: ارتقای `rules/skills/semantic-motion/SKILL.md` به نسخهٔ `2.0.0` با هدف چگالی ۱٫۰ تا ۱٫۴ ریزکنش در ثانیه، فیلد `continuity` در `semantic-beats.json`، ارجاع مستقیم به کد صحنهٔ «حقوق» در `references/warmup-04-brand-v02/parent-src/begin.tsx` و کنترل حداقل چگالی و یکتایی `before/action/after` در `scripts/verify_project.py`.
 - آزمون رگرسیون: بررسی `semantic-beats.json` توسط `verify_project.py` + بازبینی بصری شیت‌های قبل/بعد بدون خواندن کپشن.
 - وضعیت: ongoing-control (قفل‌شده در `LOCKED_RULES.md`).
+
+## M023 — هم‌پوشانی المان‌ها و ندیدن فازهای میانی به‌خاطر نمونه‌برداری `s.frame + 12` و نبود چک برخورد در `audit.tsx`
+- شواهد: مقایسهٔ کامیت‌های `362317d` و `d88255e` در `final-remotin-SINA` با پروژه‌های `warmup-04` و `warmup-07`؛ در کامیت `d88255e` دستور `--proofs` در `starter-template/scripts/render.mjs` فقط `[0, ...shots.map(s => s.frame + 12), duration - 15]` را می‌گرفت و `qa/proof-sheet.jpg` را هم نمی‌ساخت، در حالی که `audit.tsx` فقط از کادر بیرونی `<text>` محافظت می‌کرد و هم‌پوشانی دو نوشته، برخورد با `Head`/`CreatorSignature`/کپشن یا انباشت فازهای دوم و سوم صحنه را تشخیص نمی‌داد.
+- شدت و اثر: بالا — تولیدهای جدید بدون خطای خودکار در وسط یا انتهای صحنه‌ها دچار روی‌هم‌افتادگی برچسب‌ها، کارت‌ها و اشیا می‌شدند.
+- جلوگیری / اقدام اصلاحی: (۱) ارتقای `rules/skills/semantic-motion/SKILL.md` به `v2.1.0` با زون‌بندی صریح استیج (`y = 265..925`) و قانون پاک‌سازی/جداسازی فازها؛ (۲) ارتقای `starter-template/src/audit.tsx` با تشخیص خودکار هم‌پوشانی متن-با-متن و برخورد با `CreatorSignature` و `Captions`؛ (۳) ارتقای `starter-template/scripts/render.mjs --proofs` به نمونه‌برداری ۴ فازی از تک‌تک شات‌ها (`+3f, 30%, 62%, -6f`) + ساخت خودکار `qa/proof-sheet.jpg`؛ (۴) اجباری‌شدن `qa/proof-sheet.jpg` و `proof-audit.json` در `scripts/verify_project.py`.
+- آزمون رگرسیون: `npm run preview:frames` + `python3 scripts/verify_project.py projects/<slug>`.
+- وضعیت: ongoing-control.
+
+## M024 — کادر خالی و غلبهٔ پس‌زمینه (`background.png` + `TechMatrixBackdrop`) در شروع صحنه‌ها یا به‌علت جایگذاری نادرست پترن
+- شواهد: تغییرات `362317d` در `starter-template/src/core.tsx` (`opacity={clamp(p * 1.4)}` روی `Head`) و `starter-template/src/scenes.tsx` (`opacity={clamp(enter * 1.4)}` روی کل `<g>` صحنه) به‌همراه نبود کنترل جای لایهٔ `TechMatrixBackdrop` (مستطیل `1080×1920`) در `scripts/verify_project.py`. اگر `shot.frame` زودتر از `A(k) - 6` باشد یا `TechMatrixBackdrop` اشتباهی داخل صحنه قرار گیرد، بخش‌هایی از ویدیو فقط پس‌زمینه را نشان می‌دهند.
+- شدت و اثر: بالا — افت لحظه‌ای تصویر به پس‌زمینهٔ خالی یا پوشیده‌شدن المان‌ها زیر لایهٔ پترن.
+- جلوگیری / اقدام اصلاحی: (۱) حذف پنهان‌سازی `opacity=0` از ریشهٔ `scenes.tsx` و حفظ حضور فوری `Head`؛ (۲) الزام هم‌ترازی `openingEndFrame` با `shots[0].frame` و برچسب‌گذاری `data-backdrop-svg` و `data-stage-svg` در `index.tsx`؛ (۳) کنترل خودکارِ «صفر فریم خالی استیج» (`emptyStageFrames`) و ممنوعیت قراردادن `TechMatrixBackdrop` در `scenes*.tsx` هم در `audit.tsx` و هم در `scripts/verify_project.py`.
+- آزمون رگرسیون: `audit.tsx` (`emptyStageFrames: []`) + `python3 scripts/verify_project.py projects/<slug>`.
+- وضعیت: ongoing-control.
+

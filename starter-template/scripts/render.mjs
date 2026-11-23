@@ -67,10 +67,11 @@ try {
     chromiumOptions: opts,
   });
 
+  const isProofs = process.argv.includes("--proofs");
   const comp = await selectComposition({
     serveUrl,
     id: meta.compositionId,
-    inputProps: { audit: true },
+    inputProps: { audit: true, auditAll: isProofs },
     puppeteerInstance: browser,
   });
 
@@ -100,22 +101,42 @@ try {
     chromiumOptions: opts,
     scale,
     timeoutInMilliseconds: 90000,
-    inputProps: { audit: true },
+    inputProps: { audit: true, auditAll: isProofs },
     onBrowserLog,
   };
 
-  if (process.argv.includes("--proofs")) {
-    // Evenly sample cover + key scene frames
+  if (isProofs) {
+    const proofCommon = common;
+    // Sample cover + 4 sub-phases of EVERY shot (entry, early-mid, climax, pre-exit) + end frame (M023/M024)
+    const maxF = Math.max(0, meta.durationInFrames - 1);
+    const shots = Array.isArray(meta.shots) ? meta.shots : [];
     const frames = [0];
-    for (const s of meta.shots ?? []) {
-      frames.push(Math.min(meta.durationInFrames - 1, s.frame + 12));
+    if (shots.length > 0 && shots[0].frame > 24) {
+      frames.push(Math.floor(shots[0].frame / 2));
     }
-    frames.push(Math.max(0, meta.durationInFrames - 15));
+    if (shots.length > 0) {
+      for (let i = 0; i < shots.length; i++) {
+        const s0 = shots[i].frame;
+        const s1 = shots[i + 1]?.frame ?? maxF;
+        const span = Math.max(12, s1 - s0);
+        frames.push(
+          Math.min(maxF, s0 + 3),
+          Math.min(maxF, Math.round(s0 + span * 0.3)),
+          Math.min(maxF, Math.round(s0 + span * 0.62)),
+          Math.min(maxF, Math.max(s0 + 6, s1 - 6)),
+        );
+      }
+    } else {
+      for (let i = 1; i <= 15; i++) {
+        frames.push(Math.min(maxF, Math.round((maxF * i) / 16)));
+      }
+    }
+    frames.push(Math.max(0, maxF - 2));
     const uniqueFrames = [...new Set(frames)].sort((a, b) => a - b);
 
     for (const frame of uniqueFrames) {
       const { buffer } = await renderStill({
-        ...common,
+        ...proofCommon,
         frame,
         imageFormat: "png",
       });
@@ -129,12 +150,44 @@ try {
       console.log("Proof still rendered:", frame);
     }
 
-    const twice = uniqueFrames.slice(0, Math.min(6, uniqueFrames.length));
+    // Build qa/proof-sheet.jpg contact sheet automatically so every shot sub-phase is visually inspectable
+    execFileSync(
+      "python3",
+      [
+        "-c",
+        `
+from pathlib import Path
+from PIL import Image, ImageDraw
+import math
+proofs = sorted(Path(${JSON.stringify(proofsDir)}).glob("frame-*.png"))
+fps = ${Number(meta.fps || 60)}
+cols = 6
+cell_w, cell_h, pad, label_h = 200, 356, 8, 22
+rows = math.ceil(len(proofs) / cols)
+sheet = Image.new("RGB", (cols * (cell_w + pad) + pad, rows * (cell_h + label_h + pad) + pad), "#EAE5D9")
+draw = ImageDraw.Draw(sheet)
+for idx, p in enumerate(proofs):
+    r, c = divmod(idx, cols)
+    x = pad + c * (cell_w + pad)
+    y = pad + r * (cell_h + label_h + pad)
+    with Image.open(p) as im:
+        sheet.paste(im.convert("RGB").resize((cell_w, cell_h), Image.Resampling.LANCZOS), (x, y))
+    fnum = int(p.stem.split("-")[1])
+    draw.text((x + 4, y + cell_h + 4), f"f={fnum} ({fnum/fps:.2f}s)", fill="#17263D")
+sheet.save(${JSON.stringify(path.join(qa, "proof-sheet.jpg"))}, quality=90, optimize=True)
+print("Saved proof sheet:", len(proofs), "frames")
+`,
+      ],
+      { stdio: "inherit" },
+    );
+
+    const step = Math.max(1, Math.floor(uniqueFrames.length / 6));
+    const twice = uniqueFrames.filter((_, idx) => idx % step === 0).slice(0, 6);
     const checks = {};
     let allIdentical = true;
     for (const frame of [...twice].reverse()) {
       const { buffer } = await renderStill({
-        ...common,
+        ...proofCommon,
         frame,
         imageFormat: "png",
       });
@@ -155,14 +208,18 @@ try {
     const auditIssues = [...audits.values()].filter((a) => a.err.length > 0);
     write(path.join(qa, "proof-audit.json"), {
       checkedFrames: audits.size,
+      sampledProofFrames: uniqueFrames.length,
       issues: auditIssues,
     });
-    if (auditIssues.length) {
+    if (audits.size < uniqueFrames.length) {
+      console.error(`Audit missed frames: checked ${audits.size}/${uniqueFrames.length}`);
+      process.exitCode = 1;
+    } else if (auditIssues.length) {
       console.error("Proof audit issues:", JSON.stringify(auditIssues, null, 2));
       process.exitCode = 1;
     } else {
       console.log(
-        `All ${uniqueFrames.length} proof stills & determinism checks passed! (allIdentical=${allIdentical})`,
+        `All ${uniqueFrames.length} multi-phase proof stills, qa/proof-sheet.jpg & determinism checks passed! (allIdentical=${allIdentical})`,
       );
     }
   } else {
@@ -220,21 +277,24 @@ try {
           v.bbox.every((n, i) => Math.abs(n - [351, 276, 378, 82.5][i]) <= 0.15),
       ),
       issues: a.filter((v) => v.err.length),
+      emptyStageFrames: a.filter((v) => !v.cover && v.visibleStagePrimitives === 0).map((v) => v.frame),
     };
     write(path.join(qa, "type-and-layout.json"), stats);
 
     await browser.close({ silent: true });
     browser = undefined;
 
+    const minSamples = Math.min(200, Math.max(120, expectedWords));
     if (
-      stats.sampledFrames < 120 ||
+      stats.sampledFrames < minSamples ||
       wc.size !== expectedWords ||
       !stats.allFonts ||
       !stats.stableBylineAtEverySample ||
+      stats.emptyStageFrames.length > 0 ||
       stats.issues.length > 0
     ) {
       throw new Error(
-        "Render bounds/word/overlay audit failed: " + JSON.stringify(stats, null, 2),
+        "Render bounds/word/overlay/empty-stage audit failed: " + JSON.stringify(stats, null, 2),
       );
     }
 
@@ -257,6 +317,55 @@ try {
       ],
       { stdio: "inherit" },
     );
+
+    // Extract multi-phase review sheet directly from encoded MP4
+    execFileSync(
+      "python3",
+      [
+        "-c",
+        `
+from pathlib import Path
+from PIL import Image, ImageDraw
+import json, math, subprocess, tempfile
+R = Path.cwd()
+meta = json.loads((R / "data/meta.json").read_text(encoding="utf-8"))
+fps = float(meta.get("fps", 60))
+max_f = max(0, int(meta["durationInFrames"]) - 1)
+shots = meta.get("shots") or []
+frames = [0]
+for i, s in enumerate(shots):
+    s0 = int(s["frame"])
+    s1 = int(shots[i + 1]["frame"]) if i + 1 < len(shots) else max_f
+    frames.extend([min(max_f, s0 + 4), min(max_f, round((s0 + s1) / 2))])
+frames.append(max(0, max_f - 2))
+frames = sorted(set(frames))[:16]
+expr = "+".join(f"eq(n,{k})" for k in frames)
+with tempfile.TemporaryDirectory() as td:
+    subprocess.check_call([
+        "ffmpeg", "-nostdin", "-v", "error", "-i", str(${JSON.stringify(outFile)}),
+        "-an", "-vf", f"select='{expr}'", "-fps_mode", "passthrough",
+        "-frames:v", str(len(frames)), "-q:v", "2", f"{td}/f%03d.jpg"
+    ])
+    imgs = sorted(Path(td).glob("f*.jpg"))
+    cols = 4
+    cw, ch, pad, lh = 210, 373, 8, 22
+    rows = math.ceil(len(imgs) / cols)
+    sheet = Image.new("RGB", (cols * (cw + pad) + pad, rows * (ch + lh + pad) + pad), "#EAE5D9")
+    draw = ImageDraw.Draw(sheet)
+    for idx, (k, p) in enumerate(zip(frames, imgs)):
+        r, c = divmod(idx, cols)
+        x = pad + c * (cw + pad)
+        y = pad + r * (ch + lh + pad)
+        with Image.open(p) as im:
+            sheet.paste(im.convert("RGB").resize((cw, ch), Image.Resampling.LANCZOS), (x, y))
+        draw.text((x + 4, y + ch + 4), f"f={k} ({k/fps:.2f}s)", fill="#17263D")
+    sheet.save(R / "qa/encoded-review.jpg", quality=90, optimize=True)
+print("Saved qa/encoded-review.jpg from final MP4:", len(imgs), "frames")
+`,
+      ],
+      { stdio: "inherit" },
+    );
+
     console.log("SUCCESS! Rendered standard Remotion MP4:", outFile);
   }
 } finally {
