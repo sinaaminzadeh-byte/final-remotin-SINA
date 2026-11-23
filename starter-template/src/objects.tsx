@@ -215,6 +215,105 @@ export function Shade({
   return <ellipse cx={x} cy={y} rx={w} ry={h} fill="url(#deskShadow)" />;
 }
 
+// Grounded surface / workbench strip so hero objects sit on real space instead of floating mid-air
+export function StageFloor({
+  y = 838,
+  w = 772,
+  tone = "wood",
+}: {
+  y?: number;
+  w?: number;
+  tone?: "wood" | "ivory" | "slate";
+}) {
+  const fill =
+    tone === "wood"
+      ? "url(#wood)"
+      : tone === "ivory"
+        ? "url(#ivory)"
+        : "url(#steel)";
+  const edge =
+    tone === "wood" ? "#A3854F" : tone === "ivory" ? "#C2B494" : "#8F998E";
+  return (
+    <g>
+      <Shade x={444} y={y + 18} w={w * 0.49} h={22} />
+      <rect
+        x={444 - w / 2}
+        y={y - 6}
+        width={w}
+        height="16"
+        rx="8"
+        fill={fill}
+        stroke={edge}
+        strokeWidth="2"
+      />
+      <line
+        x1={444 - w / 2 + 12}
+        y1={y - 2}
+        x2={444 + w / 2 - 12}
+        y2={y - 2}
+        stroke="#FFFDF5"
+        strokeWidth="1.6"
+        opacity="0.55"
+      />
+    </g>
+  );
+}
+
+// Tactile blueprint/drafting board with corner screws for conceptual or system scenes
+export function DraftBoard({
+  x = 444,
+  y = 574,
+  w = 740,
+  h = 520,
+  rx = 28,
+}: {
+  x?: number;
+  y?: number;
+  w?: number;
+  h?: number;
+  rx?: number;
+}) {
+  const x0 = x - w / 2;
+  const y0 = y - h / 2;
+  return (
+    <g filter="url(#heavyLift)">
+      <rect
+        x={x0}
+        y={y0}
+        width={w}
+        height={h}
+        rx={rx}
+        fill="url(#ivory)"
+        stroke="#C7BA99"
+        strokeWidth="3"
+      />
+      <rect
+        x={x0 + 18}
+        y={y0 + 18}
+        width={w - 36}
+        height={h - 36}
+        rx={Math.max(12, rx - 10)}
+        fill="url(#paper)"
+        stroke="#DED5BE"
+        strokeWidth="1.5"
+      />
+      <rect
+        x={x0 + 18}
+        y={y0 + 18}
+        width={w - 36}
+        height={h - 36}
+        rx={Math.max(12, rx - 10)}
+        fill="url(#draft)"
+        opacity="0.72"
+      />
+      <Screw x={x0 + 34} y={y0 + 34} r={5} />
+      <Screw x={x0 + w - 34} y={y0 + 34} r={5} />
+      <Screw x={x0 + 34} y={y0 + h - 34} r={5} />
+      <Screw x={x0 + w - 34} y={y0 + h - 34} r={5} />
+    </g>
+  );
+}
+
 export function Seal({
   x = 0,
   y = 0,

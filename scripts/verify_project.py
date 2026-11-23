@@ -117,13 +117,12 @@ for sf in (P / "src").glob("scenes*.tsx"):
     if "TechMatrixBackdrop" in stxt:
         errors.append(f"[M024] {sf.name} must NOT render TechMatrixBackdrop inside scene stage")
 
-# 4. Semantic beats & micro-action density check (M004 / M022)
-beats_path = P / "semantic-beats.json"
-if not beats_path.is_file():
-    errors.append("Missing semantic-beats.json")
+# 4. Shots timeline & optional semantic-beats.json check (M004 / M022 / M024)
+meta_path = P / "data/meta.json"
+if not meta_path.is_file():
+    errors.append("Missing data/meta.json")
 else:
-    beats = json.loads(beats_path.read_text(encoding="utf-8"))
-    meta = json.loads((P / "data/meta.json").read_text(encoding="utf-8"))
+    meta = json.loads(meta_path.read_text(encoding="utf-8"))
     shots = meta.get("shots") or []
     if not shots:
         errors.append("[M024] data/meta.json must define shots[]")
@@ -132,25 +131,33 @@ else:
         if shot_frames != sorted(shot_frames) or len(set(shot_frames)) != len(shot_frames):
             errors.append("[M024] meta.shots frames must be strictly increasing")
         if "openingEndFrame" in meta and abs(shot_frames[0] - int(meta["openingEndFrame"])) > 2:
-            errors.append(f"[M024] Gap between openingEndFrame ({meta['openingEndFrame']}) and shots[0].frame ({shot_frames[0]})")
-    dur = float(meta["durationSeconds"])
-    density = len(beats) / max(dur, 1.0)
-    max_gap = max((float(b["durationSec"]) for b in beats), default=99.0)
-    unique_after = len({str(b.get("after", "")).strip() for b in beats if str(b.get("after", "")).strip()})
-    unique_action = len({str(b.get("action", "")).strip() for b in beats if str(b.get("action", "")).strip()})
-    checks["beatsCount"] = len(beats)
-    checks["beatsPerSecond"] = round(density, 3)
-    checks["maxBeatGapSec"] = round(max_gap, 3)
-    if max_gap > 2.55:
-        errors.append(f"[M004] Max semantic beat gap is {max_gap:.2f}s (> 2.50s limit)")
-    if unique_after < max(1, int(len(beats) * 0.85)):
-        errors.append(f"[M004/M022] Repeated 'after' descriptions in semantic-beats.json ({unique_after}/{len(beats)})")
-    if unique_action < max(1, int(len(beats) * 0.85)):
-        errors.append(f"[M004/M022] Repeated 'action' descriptions in semantic-beats.json ({unique_action}/{len(beats)})")
-    if density < 0.60:
-        errors.append(f"[M022] Beat density too low: {density:.2f}/s (minimum 0.60/s; Warmup 04 target 1.0-1.4/s)")
-    elif density < 0.95:
-        warnings.append(f"[M022 Advisory] Beat density is {density:.2f}/s; Warmup 04 gold target is 1.0-1.4 micro-actions/s")
+            errors.append(
+                f"[M024] Gap between openingEndFrame ({meta['openingEndFrame']}) and shots[0].frame ({shot_frames[0]})"
+            )
+    checks["shotsCount"] = len(shots)
+
+    beats_path = P / "semantic-beats.json"
+    checks["semanticBeatsProvided"] = beats_path.is_file()
+    if beats_path.is_file():
+        beats = json.loads(beats_path.read_text(encoding="utf-8"))
+        dur = float(meta["durationSeconds"])
+        density = len(beats) / max(dur, 1.0)
+        max_gap = max((float(b["durationSec"]) for b in beats), default=99.0)
+        unique_after = len({str(b.get("after", "")).strip() for b in beats if str(b.get("after", "")).strip()})
+        unique_action = len({str(b.get("action", "")).strip() for b in beats if str(b.get("action", "")).strip()})
+        checks["beatsCount"] = len(beats)
+        checks["beatsPerSecond"] = round(density, 3)
+        checks["maxBeatGapSec"] = round(max_gap, 3)
+        if max_gap > 2.55:
+            errors.append(f"[M004] Max semantic beat gap is {max_gap:.2f}s (> 2.50s limit)")
+        if unique_after < max(1, int(len(beats) * 0.85)):
+            errors.append(f"[M004/M022] Repeated 'after' descriptions in semantic-beats.json ({unique_after}/{len(beats)})")
+        if unique_action < max(1, int(len(beats) * 0.85)):
+            errors.append(f"[M004/M022] Repeated 'action' descriptions in semantic-beats.json ({unique_action}/{len(beats)})")
+        if density < 0.60:
+            errors.append(f"[M022] Beat density too low: {density:.2f}/s (minimum 0.60/s; Warmup 04 target 1.0-1.4/s)")
+        elif density < 0.95:
+            warnings.append(f"[M022 Advisory] Beat density is {density:.2f}/s; Warmup 04 gold target is 1.0-1.4 micro-actions/s")
 
 # 5. Type & Layout Audit (qa/type-and-layout.json & qa/proof-audit.json)
 tl_path = P / "qa/type-and-layout.json"

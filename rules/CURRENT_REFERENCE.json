@@ -60,10 +60,18 @@
     "elementSfxGain": 0.3,
     "preserveInputAudioSpeed": true,
     "optionalReports": [
+      "semantic-beats.json",
+      "brief.md",
       "qa/mistake-review.json",
       "qa/commit-review.json",
       "identity-map.md"
     ],
+    "directingDefaults": {
+      "targetSceneCount": [6, 8],
+      "groundedStagingRequired": true,
+      "avoidMotifCloning": true,
+      "warmPaletteDominance": true
+    },
     "microActionTargetPerSecond": [
       1.0,
       1.4

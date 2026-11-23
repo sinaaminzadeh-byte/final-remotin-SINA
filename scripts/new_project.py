@@ -64,13 +64,13 @@ pkg = json.loads(pkg_path.read_text(encoding="utf-8"))
 pkg["name"] = slug
 pkg_path.write_text(json.dumps(pkg, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
-# Create placeholder narration.txt & brief.md
+# Create minimal narration.txt (6-8 line scene outline can be planned directly before coding)
 (dest / "narration.txt").write_text("متن دقیق نریشن را اینجا قرار دهید.\n", encoding="utf-8")
-shutil.copy2(ROOT / "rules/BRIEF_TEMPLATE.md", dest / "brief.md")
 
 print(f"SUCCESS: Created Lineage A project at {dest.relative_to(ROOT)}")
-print("Next steps:")
-print(f"  1. Put narration audio at {dest.relative_to(ROOT)}/public/narration.mp3")
+print("Next steps (Element-First Fast Workflow):")
+print(f"  1. Put narration audio at {dest.relative_to(ROOT)}/public/narration.mp3 (keep original speed)")
 print(f"  2. Put exact Persian transcript in {dest.relative_to(ROOT)}/narration.txt")
-print("  3. Run scripts/ctc.py -> plan semantic-beats.json -> design scenes -> preview:frames -> render")
-print(f"  4. Verify with: python3 scripts/verify_project.py {dest.relative_to(ROOT)}")
+print("  3. Run scripts/ctc.py -> map 6-8 grounded scenes -> build Opening.tsx & scenes*.tsx immediately")
+print("  4. npm run preview:frames (visually inspect qa/proof-sheet.jpg) -> audio.py -> npm run render")
+print(f"  5. Verify with: python3 scripts/verify_project.py {dest.relative_to(ROOT)}")

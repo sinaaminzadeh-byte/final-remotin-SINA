@@ -70,7 +70,7 @@ try {
   const isProofs = process.argv.includes("--proofs");
   const comp = await selectComposition({
     serveUrl,
-    id: meta.compositionId,
+    id: meta.compositionId ?? meta.slug,
     inputProps: { audit: true, auditAll: isProofs },
     puppeteerInstance: browser,
   });

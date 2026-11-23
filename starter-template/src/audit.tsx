@@ -1,21 +1,31 @@
 import { useLayoutEffect } from "react";
 import { A, metric, words, meta } from "./core";
 import { openingEnd } from "./Opening";
-import beats from "../semantic-beats.json";
+
+const shotList: { frame: number; endFrame?: number }[] = meta.shots ?? [];
+const regularSamples = Array.from(
+  { length: Math.ceil(meta.durationInFrames / 30) },
+  (_, k) => Math.min(meta.durationInFrames - 1, k * 30),
+);
 
 const samples = new Set([
   0,
   meta.durationInFrames - 1,
+  ...regularSamples,
   ...words.flatMap((_, i) => [A(i), A(i) + 2]),
-  ...beats.flatMap((b) => [
-    Math.max(0, b.frame - 1),
-    Math.min(meta.durationInFrames - 1, b.frame + 8),
-    Math.floor((b.frame + b.endFrame) / 2),
-  ]),
-  ...(meta.shots ?? []).flatMap((s: { frame: number; endFrame?: number }) => [
-    Math.max(0, s.frame + 2),
-    Math.min(meta.durationInFrames - 1, s.frame + 18),
-  ]),
+  ...shotList.flatMap((s, idx) => {
+    const start = s.frame;
+    const end =
+      s.endFrame ??
+      (idx + 1 < shotList.length ? shotList[idx + 1].frame - 1 : meta.durationInFrames - 1);
+    const span = Math.max(12, end - start);
+    return [
+      Math.max(0, start + 2),
+      Math.min(meta.durationInFrames - 1, start + Math.round(span * 0.3)),
+      Math.min(meta.durationInFrames - 1, start + Math.round(span * 0.62)),
+      Math.max(0, end - 6),
+    ];
+  }),
 ]);
 
 type TextBox = {

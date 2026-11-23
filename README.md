@@ -21,9 +21,9 @@
 | `PROMPT_FOR_NEW_VIDEO.md` | پرامپت آماده و ساده (فقط لینک ویس و متن نریشن را پر کنید) |
 | `rules/LOCKED_RULES.md` | قانون اساسی قفل‌شده (تبار A، ریزکنش‌های درون‌شیء، تداوم شیء و صدا) |
 | `rules/VISUAL_IDENTITY.md` | راهنمای کامل هویت بصری (کاور، امضا، رنگ، فونت Doran، متریال لمسی، سبک ۴) |
-| `rules/PRODUCTION_PLAYBOOK.md` | دستور کار ۶ مرحله‌ای از ترازبندی ویس تا رندر و QA نهایی |
-| `rules/skills/semantic-motion/SKILL.md` | اسکیل v2.0: پوشش معنایی + چگالی ریزکنش + تداوم شیء (M006) |
-| `rules/KNOWN_MISTAKES.md` | دفتر خطاهای شناخته‌شده (`M001` تا `M022`) |
+| `rules/PRODUCTION_PLAYBOOK.md` | دستور کار ۵ مرحله‌ای المان‌محور از ترازبندی ویس تا طراحی صحنه‌های محیط‌دار، رندر و QA |
+| `rules/skills/semantic-motion/SKILL.md` | اسکیل v2.2: صحنه‌پردازی محیط‌دار (۶–۸ صحنهٔ عمیق)، ضدهم‌پوشانی، صفر فریم خالی و تداوم شیء |
+| `rules/KNOWN_MISTAKES.md` | دفتر خطاهای شناخته‌شده (`M001` تا `M024`) |
 | `rules/CURRENT_REFERENCE.json` | شناسنامه و هش فایل‌های مرجع قفل‌شده (`flywheel-effect-v01-2k`) |
 | `brand-kit/creator-brand-v1/` | کیت رسمی کاور پرسشی، امضا، فونت Doran FaNum و بافت‌های رسمی |
 | `starter-template/` | پروژهٔ پایهٔ Remotion 4.0.543 با `core.tsx`, `objects.tsx`, `audit.tsx`, `ctc.py`, `audio.py`, `render.mjs` |

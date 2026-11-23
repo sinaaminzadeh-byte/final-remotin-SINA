@@ -102,12 +102,17 @@ function Picture({ f }: { f: number }) {
   const idx = meta.shots.reduce((a, s, i) => (s.frame <= f ? i : a), 0);
   const shot = meta.shots[idx];
   const cut = shot.frame;
+  const nextCut =
+    idx + 1 < meta.shots.length ? meta.shots[idx + 1].frame : meta.durationInFrames;
+  const shotSpan = Math.max(45, nextCut - cut);
+  const camZoom = 1 + 0.018 * e(f, cut, shotSpan);
+  const camTransform = `translate(444 520) scale(${camZoom.toFixed(5)}) translate(-444 -520)`;
   const now = scenes[idx] ?? scenes[0];
   const prev = scenes[Math.max(0, idx - 1)] ?? scenes[0];
   const wipe = shot.wipe && f < cut + 10;
   const d = e(f, cut - 1, 11);
   const edge = 888 * (1 - d);
-  const scene = React.createElement(now, { f });
+  const scene = <g transform={camTransform}>{React.createElement(now, { f })}</g>;
   const [x0, y0, x1, y1] = design.safe_zones.stage_clip_rect_px;
 
   return (
@@ -268,9 +273,10 @@ export function BrandedReelFilm({
 }
 
 function Root() {
+  const compId = (meta as { compositionId?: string }).compositionId ?? meta.slug;
   return (
     <Composition
-      id={meta.compositionId}
+      id={compId}
       component={BrandedReelFilm}
       defaultProps={{ audit: false, auditAll: false }}
       durationInFrames={meta.durationInFrames}
